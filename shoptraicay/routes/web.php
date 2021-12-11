@@ -1,5 +1,6 @@
-<?php
 
+<?php
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
+
+Route::get('/trang-chu','HomeController@index');
+
+Route::get('/admin','AdminController@index')->name('login');
+Route::get('/dashboard','AdminController@show_dashboard');
+Route::post('/admin-dashboard','AdminController@dashboard');
+Route::get('/logout','AdminController@log_out');
+Route::get('/register','AdminController@register_ne');
+Route::post('/dang_ki_adm','AdminController@dangki')->name('dangki_adm');
+//Category Product
+Route::get('/add-category-product','CategoryProduct@add_category_product');
+Route::get('/all-category-product','CategoryProduct@all_category_product');
+Route::post('/save-category-product','CategoryProduct@save_category_product');
+
