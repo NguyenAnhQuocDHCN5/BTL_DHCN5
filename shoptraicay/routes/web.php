@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/','HomeController@index');
-
-Route::get('/trang-chu','HomeController@index');
 
 Route::get('/admin','AdminController@index')->name('login');
 Route::get('/dashboard','AdminController@show_dashboard');
@@ -30,7 +26,7 @@ Route::get('/add-category-product','CategoryProduct@add_category_product');
 Route::get('/all-category-product','CategoryProduct@all_category_product');
 Route::post('/save-category-product','CategoryProduct@save_category_product');
 
-=======
+
 //frontend
 Route::get('/','HomeController@index');
 Route::get('/trang-chu','HomeController@index');
@@ -38,4 +34,3 @@ Route::get('/login','HomeController@dangnhaptrangchu');
 Route::get('/logout','HomeController@dangxuattrangchu');
 Route::post('/dangkikhachhang','HomeController@dangkikh')->name('dangkikh');
 Route::post('/dangnhapkhachhang','HomeController@dangnhapkh')->name('dangnhapkh');
->>>>>>> afc5b1d8b6e8b6e5ab4c68bd1426d797e80ffef0

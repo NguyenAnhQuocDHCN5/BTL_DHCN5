@@ -3,14 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-
-class HomeController extends Controller
-{
-    public function index(){
-        return view('pages.home');
-    }
-=======
 use DB;
 use Session;
 use App\Http\Requests;
@@ -65,5 +57,4 @@ class HomeController extends Controller
             return Redirect::to('/login');
         }
     }           
->>>>>>> afc5b1d8b6e8b6e5ab4c68bd1426d797e80ffef0
 }
