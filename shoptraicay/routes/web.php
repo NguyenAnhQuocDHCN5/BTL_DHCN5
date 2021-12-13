@@ -34,3 +34,5 @@ Route::get('/login','HomeController@dangnhaptrangchu');
 Route::get('/logout','HomeController@dangxuattrangchu');
 Route::post('/dangkikhachhang','HomeController@dangkikh')->name('dangkikh');
 Route::post('/dangnhapkhachhang','HomeController@dangnhapkh')->name('dangnhapkh');
+Route::get('/trangcanhan','HomeController@trangcanhan');
+Route::get('/lienhe','HomeController@lienhe');

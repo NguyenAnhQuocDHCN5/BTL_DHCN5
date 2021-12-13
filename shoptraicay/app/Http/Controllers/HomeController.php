@@ -23,6 +23,12 @@ class HomeController extends Controller
         Session::flush();
         return Redirect::to('/trang-chu');
     }
+    public function trangcanhan(){
+        return view('frontend.trangcanhan');
+    }
+    public function lienhe(){
+        return view('frontend.lienhe');
+    }
     public function dangkikh(Request $request){
         $validatedData = $request->validate([
             'kh_email' => ['required', 'unique:khachhang'],
@@ -46,11 +52,15 @@ class HomeController extends Controller
     public function dangnhapkh(Request $request){
         $email_kh = $request->email_kh;
     	$mat_khau_kh = $request->mat_khau_kh;
+        
 
     	$result = DB::table('khachhang')->where('kh_email',$email_kh)->where('kh_matkhau',$mat_khau_kh)->first();
     	if($result){
             Session::put('kh_ten',$result->kh_ten);
+            Session::put('kh_email',$result->kh_email);
             Session::put('ma_khach_hang',$result->ma_khach_hang);
+            Session::put('kh_sdt',$result->kh_sdt);
+            Session::put('kh_diachi',$result->kh_diachi);
             return Redirect::to('/');
         }else{
             Session::flash('message_1','Tài khoản hoặc mật khẩu sai');

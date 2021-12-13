@@ -1,4 +1,4 @@
-@extends('homelayout')
+@extends('layouthome')
 @section('content')
 <div class="category-tab"><!--category-tab-->	
 						<div class="col-sm-12">
