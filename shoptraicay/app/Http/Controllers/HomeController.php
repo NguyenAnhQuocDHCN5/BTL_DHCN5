@@ -66,5 +66,14 @@ class HomeController extends Controller
             Session::flash('message_1','Tài khoản hoặc mật khẩu sai');
             return Redirect::to('/login');
         }
-    }           
+    } 
+    public function tintuc()
+    {
+        return view('frontend.tintuc');
+    }
+
+    public function chitiettintuc()
+    {
+        return view('frontend.chitiettintuc');
+    }          
 }

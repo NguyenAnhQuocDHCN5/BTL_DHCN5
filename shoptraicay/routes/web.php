@@ -36,3 +36,5 @@ Route::post('/dangkikhachhang','HomeController@dangkikh')->name('dangkikh');
 Route::post('/dangnhapkhachhang','HomeController@dangnhapkh')->name('dangnhapkh');
 Route::get('/trangcanhan','HomeController@trangcanhan');
 Route::get('/lienhe','HomeController@lienhe');
+Route::get('/tintuc','HomeController@tintuc');
+Route::get('/chitiettintuc','HomeController@chitiettintuc');
