@@ -13,21 +13,21 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.home');
+        return view('trangchu.home');
     }
     public function dangnhaptrangchu()
     {
-        return view('frontend.login_register');
+        return view('trangchu.login_register');
     }
     public function dangxuattrangchu(){
         Session::flush();
         return Redirect::to('/trang-chu');
     }
     public function trangcanhan(){
-        return view('frontend.trangcanhan');
+        return view('trangchu.trangcanhan');
     }
     public function lienhe(){
-        return view('frontend.lienhe');
+        return view('trangchu.lienhe');
     }
     public function dangkikh(Request $request){
         $validatedData = $request->validate([
@@ -69,11 +69,11 @@ class HomeController extends Controller
     } 
     public function tintuc()
     {
-        return view('frontend.tintuc');
+        return view('trangchu.tintuc');
     }
 
     public function chitiettintuc()
     {
-        return view('frontend.chitiettintuc');
+        return view('trangchu.chitiettintuc');
     }          
 }
