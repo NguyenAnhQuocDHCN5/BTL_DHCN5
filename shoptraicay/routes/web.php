@@ -27,7 +27,7 @@ Route::get('/all-category-product','CategoryProduct@all_category_product');
 Route::post('/save-category-product','CategoryProduct@save_category_product');
 
 
-//frontend
+//trangchu
 Route::get('/','HomeController@index');
 Route::get('/trang-chu','HomeController@index');
 Route::get('/login','HomeController@dangnhaptrangchu');
@@ -38,3 +38,5 @@ Route::get('/trangcanhan','HomeController@trangcanhan');
 Route::get('/lienhe','HomeController@lienhe');
 Route::get('/tintuc','HomeController@tintuc');
 Route::get('/chitiettintuc','HomeController@chitiettintuc');
+Route::get('/chitietsanpham','HomeController@chitietsanpham');
+

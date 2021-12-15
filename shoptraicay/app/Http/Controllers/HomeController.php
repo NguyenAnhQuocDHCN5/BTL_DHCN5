@@ -7,13 +7,18 @@ use DB;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\loaiqua;
+use App\Models\qua;
 session_start();
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('trangchu.home');
+    $loaiqua =loaiqua::all();  
+       $qua =qua::all(); 
+        return view('trangchu.home')->with('loaiqua',$loaiqua)->with('qua',$qua);
+
     }
     public function dangnhaptrangchu()
     {
@@ -28,6 +33,10 @@ class HomeController extends Controller
     }
     public function lienhe(){
         return view('trangchu.lienhe');
+    }
+    public function chitietsanpham(){
+        $loaiqua =loaiqua::all();  
+        return view('trangchu.chitietsanpham')->with('loaiqua',$loaiqua);
     }
     public function dangkikh(Request $request){
         $validatedData = $request->validate([

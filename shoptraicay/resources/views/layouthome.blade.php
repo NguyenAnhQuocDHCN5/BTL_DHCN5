@@ -153,16 +153,30 @@
 		</div>
 	</section><!--/slider-->
 	<section>
-		<div class="container">
-			<div class="row">
-			<div class="col-sm-12 padding-right">	
-					@yield('content')
-					
-				</div>
-			</div>
-		</div>
-	</section>
-	
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Danh mục sản phẩm</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->  
+                        <div class="panel panel-default">	
+							@foreach ($loaiqua as $loai)
+                            <div class="panel-heading">
+							 <h3 class="panel-title"><a href="#">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{$loai->ten_loai}}</a></h3>
+							 <br>
+                            </div>
+							@endforeach 
+                        </div>
+                    </div><!--/category-products-->
+                </div>
+            </div>
+            
+            <div class="col-sm-9 padding-right">
+				@yield('content')
+            </div>
+        </div>
+    </div>
+</section>
 	<footer id="footer"><!--Footer-->
 		<div class="footer-widget">
 			<div class="container">

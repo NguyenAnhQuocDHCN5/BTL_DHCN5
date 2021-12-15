@@ -1,9 +1,9 @@
 @extends('layoutlogin')
 @section('content1')
 <section>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-3">
+    <div class="container">
+        <div class="row">
+		<div class="col-sm-3">
 			    <div class="left-sidebar">
 					<h2>Danh mục</h2>
 				    <div class="panel-group category-products"  id="accordian">
@@ -21,12 +21,11 @@
 					</div>
 				</div>
 			</div> 
-				
-				
-				<div class="col-sm-9 padding-right">
-                    
+            
+            <div class="col-sm-9 padding-right">
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Thông tin khách hàng</h2>
 					<div class="panel-body">
-                    
                     <form role="form" class="form-horizontal bucket-form" action="{{URL::to('/capnhapthongtinkhachhang')}}" method="post">
                     {{ csrf_field() }}
                                     @php
@@ -91,8 +90,9 @@
 				    </form>
 				
                     </div>	
-				</div>
-			</div>
-	</div>
+                </div><!--features_items-->
+            </div>
+        </div>
+    </div>
 </section>
  @endsection
