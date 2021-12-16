@@ -10,11 +10,12 @@ class khachhang extends Model
     use HasFactory;
     protected $table = 'khachhang';
     protected $fillable = [
+        'ma_khach_hang',
         'kh_email',
         'kh_matkhau',
         'kh_ten',
         'kh_sdt',
         'kh_diachi',
     ];
-    protected $guarded = ['ma_khach_hang'];
+    
 }

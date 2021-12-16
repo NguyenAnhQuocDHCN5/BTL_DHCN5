@@ -3,29 +3,31 @@
 <div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt="" />
+								<img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:360px;height:295px; alt="" />
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
 										<div class="item active">
+										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:85px;height:84px; alt=""></a>
+										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:85px;height:84px;  alt=""></a>
+										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:85px;height:84px; alt=""></a>
+										</div>
+										<!-- <div class="item">
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
 										</div>
 										<div class="item">
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
-										</div>
+										</div> -->
 									</div>
 
 								  <!-- Controls -->
-								  <a class="left item-control" href="#similar-product" data-slide="prev">
+								  <!-- <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
 								  </a>
 								  <a class="right item-control" href="#similar-product" data-slide="next">
 									<i class="fa fa-angle-right"></i>
-								  </a>
+								  </a> -->
 							</div>
 
 						</div>

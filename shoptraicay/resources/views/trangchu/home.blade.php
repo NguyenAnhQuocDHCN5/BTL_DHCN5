@@ -8,7 +8,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                     <div class="productinfo text-center">
-									<a href="{{URL::to('/chitietsanpham')}}"> <img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt="" /></a> 
+									<a href="{{URL::to('/chitietsanpham')}}"> <img src="{{('public/frontend/images/'.$qua->hinh_anh_qua)}}" style="width:250px;height:230px; alt="" /></a> 
                                         <h2>{{$qua->gia_qua}} VND</h2>
                                         <p>{{$qua->ten_qua}}</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng </a>
@@ -35,7 +35,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="{{('public/frontend/images/man_bac.jpg')}}" alt="" />
+                                                <img src="{{('public/frontend/images/man_bac.jpg')}}" style="width:250px;height:230 px; alt="" />
                                                 <h2>75.000 VND</h2>
                                                 <p>Mận Bắc</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>

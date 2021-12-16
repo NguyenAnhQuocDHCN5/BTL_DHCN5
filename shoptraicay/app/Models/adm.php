@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class qua extends Model
+class adm extends Model
 {
     use HasFactory;
-    protected $table = 'qua';
+    protected $table = 'adm';
     protected $fillable = [
-        'ma_qua',
-        'ma_loai',
-        'ten_qua',
-        'gia_qua',
-        'hinh_anh_qua',
-        'mo_ta_qua',
+        'ma_adm',
+        'ten_dn',
+        'mat_khau',
+        'ten_adm',
+        'sdt',
+        'dia_chi',
     ];
-
 }
