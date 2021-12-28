@@ -1,17 +1,18 @@
 @extends('layouthome')
 @section('content')
+@foreach($sanphamchitiet as $sanpham)
 <div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
-							<div class="view-product">
-								<img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:360px;height:295px; alt="" />
-							</div>
+								<div class="view-product">
+									<img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:360px;height:295px; alt="" />
+								</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
 										<div class="item active">
-										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:85px;height:84px; alt=""></a>
-										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:85px;height:84px;  alt=""></a>
-										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" style="width:85px;height:84px; alt=""></a>
+										  <a href=""><img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
+										  <a href=""><img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px;  alt=""></a>
+										  <a href=""><img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
 										</div>
 										<!-- <div class="item">
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
@@ -20,7 +21,6 @@
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
 										</div> -->
 									</div>
-
 								  <!-- Controls -->
 								  <!-- <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
@@ -34,20 +34,23 @@
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
-								<h2>Bưởi da xanh</h2>
+								<h2>{{$sanpham->ten_qua}}</h2>
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
-									<span>75.000 VND</span>
+									<span>{{$sanpham->gia_qua.'VND'}}</span>
 								</span>
+								<form action="" method="post">
                                 <span>
 									<label>Số lượng:</label>
-									<input type="text" value="3" />
+									<input name="soluong" type="number" min="1" value="1"/>
+									<input name="sanphamid" type="hidden" value="#"/>
                                     <br>
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Thêm vào giỏ hàng
 									</button>
 								</span>
+								</form>
 								<p><b>Tình trạng:</b> còn hàng</p>
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
@@ -63,28 +66,13 @@
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="reviews" >
 								<div class="col-sm-12">
-									<!-- <ul>
-										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-									</ul> -->
-									<p>Bưởi Da Xanh Cắt Tại Vườn size 1kg-1.2kg
-
-Công Ty TNHH Sản Xuất và Thương Mại Big S
-
-Rất hân hạnh phục vụ quý khách.
-
-52 Thạch Ngọc Biên, Khóm 10, Phường 9, Tp Trà Vinh
-
-, tặng 0,5 kg phân dê đã xử lý nấm mốc
-
-Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....
-
-Sản phẩm này là tài sản cá nhân được bán bởi Nhà Bán Hàng Cá Nhân và không thuộc đối tượng phải chịu thuế GTGT. Do đó hoá đơn VAT không được cung cấp trong trường hợp này.
-</p>
+									<p>
+									{{$sanpham->mo_ta_qua}}
+									</p>
 								</div>
 							</div>
 							
 						</div>
 					</div><!--/category-tab-->
+@endforeach
 @endsection

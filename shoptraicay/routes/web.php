@@ -38,5 +38,7 @@ Route::get('/trangcanhan','HomeController@trangcanhan');
 Route::get('/lienhe','HomeController@lienhe');
 Route::get('/tintuc','HomeController@tintuc');
 Route::get('/chitiettintuc','HomeController@chitiettintuc');
-Route::get('/chitietsanpham','HomeController@chitietsanpham');
+Route::get('/chitietsanpham/{ma_qua}','HomeController@chitietsanpham');
+Route::get('/giohang','HomeController@giohang');
+// Route::post('/chitietgiohang','HomeController@chitietgiohang');
 

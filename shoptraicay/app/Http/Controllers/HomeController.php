@@ -15,10 +15,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-    $loaiqua =loaiqua::all();  
-       $qua =qua::all(); 
+        $loaiqua =loaiqua::all();  
+        $qua =qua::all(); 
         return view('trangchu.home')->with('loaiqua',$loaiqua)->with('qua',$qua);
-
     }
     public function dangnhaptrangchu()
     {
@@ -34,9 +33,10 @@ class HomeController extends Controller
     public function lienhe(){
         return view('trangchu.lienhe');
     }
-    public function chitietsanpham(){
+    public function chitietsanpham($ma_qua){
         $loaiqua =loaiqua::all();  
-        return view('trangchu.chitietsanpham')->with('loaiqua',$loaiqua);
+        $chitietqua = qua::where('ma_qua',$ma_qua)->get();
+        return view('trangchu.chitietsanpham')->with('loaiqua',$loaiqua)->with('sanphamchitiet',$chitietqua);
     }
     public function dangkikh(Request $request){
         $validatedData = $request->validate([
@@ -84,5 +84,16 @@ class HomeController extends Controller
     public function chitiettintuc()
     {
         return view('trangchu.chitiettintuc');
-    }          
+    }  
+    public function giohang()
+    {
+        return view('trangchu.giohang');
+    }   
+    public function chitietgiohang(Request $request)
+    {
+        $idsanpham = $request->sanpham_id;
+        $listgiohang = qua::where('ma_qua',$idsanpham)->get();
+        dd($listgiohang);
+        return view('trangchu.giohang');
+    }            
 }
