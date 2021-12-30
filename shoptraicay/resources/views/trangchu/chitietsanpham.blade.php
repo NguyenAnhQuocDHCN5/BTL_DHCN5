@@ -39,13 +39,14 @@
 								<span>
 									<span>{{$sanpham->gia_qua.'VND'}}</span>
 								</span>
-								<form action="" method="post">
+								<form action="{{URL::to('/chitietgiohang')}}" method="POST">
+									{{csrf_field()}}
                                 <span>
 									<label>Số lượng:</label>
 									<input name="soluong" type="number" min="1" value="1"/>
-									<input name="sanphamid" type="hidden" value="#"/>
+									<input name="sanphamid" type="hidden" value="{{$sanpham->ma_qua}}"/>
                                     <br>
-									<button type="button" class="btn btn-fefault cart">
+									<button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Thêm vào giỏ hàng
 									</button>

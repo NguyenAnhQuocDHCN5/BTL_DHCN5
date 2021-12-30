@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\loaiqua;
 use App\Models\qua;
+use Cart;
 session_start();
 
 class HomeController extends Controller
@@ -88,12 +89,34 @@ class HomeController extends Controller
     public function giohang()
     {
         return view('trangchu.giohang');
-    }   
+    }       
     public function chitietgiohang(Request $request)
     {
-        $idsanpham = $request->sanpham_id;
-        $listgiohang = qua::where('ma_qua',$idsanpham)->get();
-        dd($listgiohang);
-        return view('trangchu.giohang');
+        $idsanpham = $request->sanphamid;
+        $soluong = $request->soluong;
+        $listgiohang = qua::where('ma_qua',$idsanpham)->first();
+        $data['id'] = $listgiohang->ma_qua;
+        $data['qty'] = $soluong;
+        $data['name'] = $listgiohang->ten_qua;
+        $data['price'] = $listgiohang->gia_qua;
+        $data['weight'] = $listgiohang->gia_qua;
+        $data['options']['image'] = $listgiohang->hinh_anh_qua;
+        Cart::add($data);
+        return Redirect::to('/showgiohang');
     }            
+    public function showgiohang()
+    {
+        return view('trangchu.giohang');
+    }
+    public function xoasanpham($rowId)
+    {
+        Cart::remove($rowId);
+         return Redirect::to('/showgiohang');
+    }
+    public function congsl($rowId)
+    {
+        $row = Cart::get($rowId);
+        Cart::update($rowId,$row->qty + 1);
+        return Redirect::to('/showgiohang');
+    }
 }

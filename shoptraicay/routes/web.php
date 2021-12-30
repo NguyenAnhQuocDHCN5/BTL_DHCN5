@@ -40,5 +40,9 @@ Route::get('/tintuc','HomeController@tintuc');
 Route::get('/chitiettintuc','HomeController@chitiettintuc');
 Route::get('/chitietsanpham/{ma_qua}','HomeController@chitietsanpham');
 Route::get('/giohang','HomeController@giohang');
-// Route::post('/chitietgiohang','HomeController@chitietgiohang');
-
+Route::post('/chitietgiohang','HomeController@chitietgiohang');
+Route::get('/showgiohang','HomeController@showgiohang');
+Route::get('/xoasanpham/{rowId}','HomeController@xoasanpham');
+Route::get('/capnhapsoluong/{rowId}','HomeController@capnhatsoluong');
+Route::get('/congsl/{rowId}','HomeController@congsl');
+Route::get('/trusl/{rowId}','HomeController@trusl');
