@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | Shop Trái Cây</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -13,6 +14,10 @@
     <link href="{{asset('public/frontend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{asset('public/frontend/css/themify-icons.css')}}" rel="stylesheet" >
+	<link href="{{asset('public/frontend/css/reset.css')}}" rel="stylesheet" >
+	<link href="{{asset('public/frontend/style.css')}}" rel="stylesheet" >
+
 </head><!--/head-->
 
 <body>
@@ -115,7 +120,7 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-    <section id="form"><!--form-->
+    <section ><!--form-->
 	@yield('content1')
     </section><!--/form-->
 	<footer id="footer"><!--Footer-->
@@ -166,5 +171,11 @@
 	<script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
+	
+    <script src="{{asset('public/frontend/js/jquery-migrate-3.0.0.js')}}"></script>
+	<script src="{{asset('public/frontend/js/slicknav.min.js')}}"></script>
+	<script src="{{asset('public/frontend/js/nicesellect.js')}}"></script>
+	<script src="{{asset('public/frontend/js/active.js')}}"></script>
+
 </body>
 </html>

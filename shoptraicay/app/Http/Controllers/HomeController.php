@@ -119,4 +119,8 @@ class HomeController extends Controller
         Cart::update($rowId,$row->qty + 1);
         return Redirect::to('/showgiohang');
     }
+    public function checkout()
+    {
+        return view('trangchu.thanhtoan');
+    } 
 }

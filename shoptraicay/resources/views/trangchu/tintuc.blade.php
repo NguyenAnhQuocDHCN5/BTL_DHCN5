@@ -1,5 +1,6 @@
-@extends('layouthome')
-@section('content')
+@extends('layoutlogin')
+@section('content1')
+<div class="container">
 <div class="blog-post-area">
 						<h2 class="title text-center">Tin tức</h2>
 						<div class="single-blog-post">
@@ -13,6 +14,9 @@
 										<i class="fa fa-star-half-o"></i>
 								</span>
 							</div> -->
+							<a href="">
+								<img src="{{URL::to('/public/frontend/images/cayoidailoan.jpg')}}"  style="height: 400px;" alt="">
+							</a>
 							<h3>Công dụng đáng kinh ngạc từ trái ổi.</h3>
 						
 							<p>Không chỉ là một loại hoa quả
@@ -31,5 +35,6 @@
 							</ul>
 						</div>
 					</div>
-                    @endsection
+</div>
+@endsection
 					
