@@ -71,3 +71,4 @@ Route::get('/xoasanpham/{rowId}','HomeController@xoasanpham');
 Route::get('/capnhapsoluong/{rowId}','HomeController@capnhatsoluong');
 Route::get('/congsl/{rowId}','HomeController@congsl');
 Route::get('/trusl/{rowId}','HomeController@trusl');
+Route::get('/thanhtoan','HomeController@checkout');
