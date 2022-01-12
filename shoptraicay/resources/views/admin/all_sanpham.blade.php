@@ -35,18 +35,32 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên danh mục</th>
-            <th>Miêu tả</th>
+            <th>Mã loại</th>
+            <th>Tên quả</th>
+            <th>Giá quả</th>
+            <th>Hình ảnh</th>
+            <th>Số lượng </th>
+            <th>Trạng thái</th>
+            <th>Mô tả</th>
+            <th>Chỉnh sửa</th>
        
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-        @foreach($all_category_product as $key => $cate_pro)
+        @foreach($all_sanpham as $key => $cate_pro)
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{ $cate_pro->ten_loai }}</td>
-           
+            <td>{{ $cate_pro->ma_loai }}</td>
+            <td>{{ $cate_pro->ma_loai }}</td>
+            <td>{{ $cate_pro->gia_qua }}</td>
+            <td>{{ $cate_pro->hinh_anh_qua }}</td>
+            <td>{{ $cate_pro->so_luong_qua }}</td>
+            <td>{{ $cate_pro->trang_thai_qua }}</td>
+            <td>{{ $cate_pro->mo_ta_qua }}</td>
+
+
+            
            
             <td>
               <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">

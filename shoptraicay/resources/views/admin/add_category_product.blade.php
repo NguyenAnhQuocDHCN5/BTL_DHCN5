@@ -23,10 +23,7 @@
                                     <input type="text"  class="form-control"  onkeyup="ChangeToSlug();" name="ten_loai"  id="slug" placeholder="tên loại quả" required="">
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Mô tả loại quả</label>
-                                    <textarea style="resize: none" rows="8" class="form-control" name="mieu_ta_loai" id="exampleInputPassword1" placeholder="Miêu tả loại quả"required=""></textarea>
-                                </div>
+                                
                                
                                
                                

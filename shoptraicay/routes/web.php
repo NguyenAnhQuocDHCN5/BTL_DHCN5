@@ -25,6 +25,31 @@ Route::post('/dang_ki_adm','AdminController@dangki')->name('dangki_adm');
 Route::get('/add-category-product','CategoryProduct@add_category_product');
 Route::get('/all-category-product','CategoryProduct@all_category_product');
 Route::post('/save-category-product','CategoryProduct@save_category_product');
+Route::post('/update-category-product','CategoryProduct@update_category_product');
+// sản phẩm
+Route::get('/them-sanpham','Sanpham@them_sanpham');
+Route::get('/all-sanpham','Sanpham@all_sanpham');
+Route::post('/save-sanpham','Sanpham@save_sanpham');
+Route::post('/update-sanpham','Sanpham@update_sanpham');
+// khách hàng
+Route::get('/all-khachhang','Khachhang@all_khachhang');
+Route::post('/save-khachhang','Khachhang@save_khachhang');
+Route::post('/update-khachhang','Khachhang@update_khachhang');
+// đơn đặt hàng
+Route::get('/all-dondathang','Dondathang@all_dondathang');
+Route::post('/save-dondathang','Dondathang@save_dondathang');
+Route::post('/update-dondathang','Dondathang@update_dondathang');
+// tin tức
+Route::get('/them-tintuc','Tintuc@them_tintuc');
+Route::get('/all-tintuc','Tintuc@all_tintuc');
+Route::post('/save-tintuc','Tintuc@save_tintuc');
+Route::post('/update-tintuc','Tintuc@update_tintuc');
+// liên hệ
+Route::get('/all-lienhe','Lienhe@all_lienhe');
+Route::post('/save-lienhe','Lienhe@save_lienhe');
+Route::post('/update-lienhe','Lienhe@update_lienhe');
+
+
 
 
 //trangchu

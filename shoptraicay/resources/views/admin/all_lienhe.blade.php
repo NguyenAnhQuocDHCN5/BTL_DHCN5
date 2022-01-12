@@ -3,7 +3,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê danh mục sản phẩm
+      Chi tiết liên hệ
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -35,23 +35,38 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên danh mục</th>
-            <th>Miêu tả</th>
+            <th>Tên người liên hệ </th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Địa chỉ </th>
+            <th>Nội dung</th>
+            <th>Ngày liên hệ</th>
+            <th>Mã khách hàng </th>
+            
+            
        
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-        @foreach($all_category_product as $key => $cate_pro)
+        @foreach($all_lienhe as $key => $cate_pro)
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{ $cate_pro->ten_loai }}</td>
+            <td>{{ $cate_pro->ten_nguoi_lien_he }}</td>
+            <td>{{ $cate_pro->sdt_nguoi_lien_he }}</td>
+            <td>{{ $cate_pro->email_nguoi_lien_he }}</td>
+            <td>{{ $cate_pro->dia_chi_nguoi_lien_he }}</td>
+            <td>{{ $cate_pro->noi_dung }}</td>
+            <td>{{ $cate_pro->ngay_lien_he }}</td>
+            <td>{{ $cate_pro->ma_khach_hang }}</td>
+            
            
+
            
             <td>
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+              <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_lien_he)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->ma_lien_he)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
