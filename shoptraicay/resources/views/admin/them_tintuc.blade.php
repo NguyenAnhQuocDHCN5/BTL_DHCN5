@@ -17,7 +17,7 @@
                              {
                            echo Session::get('message');
                                }
-    @endphp
+                             @endphp
                                 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tiêu đề </label>
@@ -28,20 +28,14 @@
                                     <input type="file" name="hinh_anh_tin_tuc" class="form-control" id="exampleInputEmail1">
                                 </div>
                                
-                                
-                               
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Nội dung</label>
-                                    <textarea style="resize: none" rows="8" class="form-control" name="noi_dung_tin_tuc" id="exampleInputPassword1" placeholder="Nội dung tin tức"required=""></textarea>
+                                    <textarea style="resize: none" rows="8" class="form-control" name="noi_dung_tin_tuc" id="ckeditor_tintuc" placeholder="Nội dung tin tức"required=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày đăng</label>
-                                    <input type="text" data-validation="number" data-validation-error-msg="Làm ơn điền ngày đăng" name="ngay_dang_tin_tuc" class="form-control" id="exampleInputEmail1" placeholder="Điền ngày đăng">
+                                    <input type="date" data-validation="number" data-validation-error-msg="Làm ơn điền ngày đăng" name="ngay_dang_tin_tuc" class="form-control" id="exampleInputEmail1" placeholder="Điền ngày đăng">
                                 </div>
-                                
-                             
-                                 
-                                     
                                 
                                       <button type="submit" name="them_tintuc" class="btn btn-info">Thêm tin tức</button>
                                 </form>

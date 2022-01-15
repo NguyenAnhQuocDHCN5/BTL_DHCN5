@@ -34,7 +34,7 @@
                                
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả loại quả</label>
-                                    <textarea style="resize: none" rows="8" class="form-control" name="mo_ta_qua" id="exampleInputPassword1" placeholder="Miêu tả loại quả"required=""></textarea>
+                                    <textarea style="resize: none" rows="8" class="form-control" name="mo_ta_qua" id="ckeditor_qua" placeholder="Miêu tả loại quả"required=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số lượng</label>

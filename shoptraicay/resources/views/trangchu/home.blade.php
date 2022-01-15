@@ -9,10 +9,10 @@
                             <div class="single-products">
                                     <div class="productinfo text-center">
 									<a href="{{URL::to('/chitietsanpham/'.$qua->ma_qua)}}"> <img src="{{('public/frontend/images/'.$qua->hinh_anh_qua)}}" style="width:250px;height:230px; alt="" /></a> 
-                                        <h2>{{$qua->gia_qua}} VND</h2>
+                                        <h2>{{number_format($qua->gia_qua)}} VND</h2>
                                         <p>{{$qua->ten_qua}}</p>
                                         <input name="sanpham_id" type="hidden" value="{{$qua->ma_qua}}"/>
-                                        <a href="{{URL::to('/chitietgiohang')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng </a>
+                                        <a href="{{URL::to('/chitietgiohang1/'.$qua->ma_qua)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng </a>
                                     </div>
                             </div>
                         </div>
@@ -37,7 +37,6 @@
                                                 <p>Mận Bắc</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +52,6 @@
                                                 <p>KiWi</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>

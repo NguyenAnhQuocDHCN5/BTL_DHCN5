@@ -12,9 +12,6 @@ class Lienhe extends Controller
         $all_lienhe = DB::table('lien_he')->get();
         $manager_lienhe  = view('admin.all_lienhe')->with('all_lienhe',$all_lienhe);
         return view('admin.admin_layout')->with('admin.all_lienhe', $manager_lienhe);
-        
-        
-            
         }
         public function save_lienhe(Request $request){
            

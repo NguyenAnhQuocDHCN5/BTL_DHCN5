@@ -9,6 +9,9 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\loaiqua;
 use App\Models\qua;
+use App\Models\donhang;
+use App\Models\tintuc;
+use App\Models\chitietdondathang;
 use Cart;
 session_start();
 
@@ -77,14 +80,17 @@ class HomeController extends Controller
             return Redirect::to('/login');
         }
     } 
+
     public function tintuc()
     {
-        return view('trangchu.tintuc');
+        $tintuc = tintuc::all();
+        return view('trangchu.tintuc')->with('tintuc',$tintuc);
     }
 
-    public function chitiettintuc()
+    public function chitiettintuc($ma_tin_tuc)
     {
-        return view('trangchu.chitiettintuc');
+        $chitiettintuc = tintuc::where('ma_tin_tuc',$ma_tin_tuc)->get();
+        return view('trangchu.chitiettintuc')->with('chitiettintuc',$chitiettintuc);
     }  
     public function giohang()
     {
@@ -99,14 +105,30 @@ class HomeController extends Controller
         $data['qty'] = $soluong;
         $data['name'] = $listgiohang->ten_qua;
         $data['price'] = $listgiohang->gia_qua;
-        $data['weight'] = $listgiohang->gia_qua;
+        $data['weight'] = $soluong;
         $data['options']['image'] = $listgiohang->hinh_anh_qua;
         Cart::add($data);
         return Redirect::to('/showgiohang');
-    }            
+    }         
+    public function chitietgiohang1($ma_qua)
+    {
+        $sanpham = qua::where('ma_qua',$ma_qua)->first();
+        $data['id'] = $sanpham->ma_qua;
+        $data['qty'] = "1";
+        $data['name'] = $sanpham->ten_qua;
+        $data['price'] = $sanpham->gia_qua;
+        $data['weight'] = '1';
+        $data['options']['image'] = $sanpham->hinh_anh_qua;
+        Cart::add($data);
+        return Redirect::to('/showgiohang');
+    }   
     public function showgiohang()
     {
         return view('trangchu.giohang');
+    }
+    public function dangkikh1()
+    {
+        return view('trangchu.dangkikh');
     }
     public function xoasanpham($rowId)
     {
@@ -119,8 +141,42 @@ class HomeController extends Controller
         Cart::update($rowId,$row->qty + 1);
         return Redirect::to('/showgiohang');
     }
-    public function checkout()
+    public function checkout()  
     {
         return view('trangchu.thanhtoan');
+    } 
+    public function xacnhanthanhtoan(Request $request)
+    {
+        $validatedData = $request->validate([
+            'ten_nguoinhan' => ['required',],
+            'email_nguoinhan' => ['required'],
+            'sdt_nguoinhan' => ['required','numeric'], 
+            'diachi_nguoinhan' => ['required'],
+            'ghichu_nguoinhan' => ['max:255'],
+        ]);
+        $data =$request->all();
+        $id_donhang = donhang::insertGetId([
+            'ten_nguoi_nhan'=>$data['ten_nguoinhan'],
+            'email_nguoi_nhan'=>$data['email_nguoinhan'],
+            'sdt_nguoi_nhan'=>$data['sdt_nguoinhan'],
+            'dia_chi_nguoi_nhan'=>$data['diachi_nguoinhan'],
+            'ghi_chu_dat_hang'=>$data['ghichu_nguoinhan'],
+            'tong_tien'=>Cart::total()
+        ]);
+
+    
+        $content = Cart::content();
+        foreach($content as $sanpham){
+            $thanhtien = $sanpham->price * $sanpham->qty;
+            chitietdondathang::insert([
+                'ma_qua'=>$sanpham->id,
+                'ma_don_dat_hang'=>$id_donhang,
+                'so_luong'=>$sanpham->qty,
+                'gia'=>$sanpham->price,
+                'thanh_tien'=> $thanhtien   
+            ]);
+        }
+        Cart::destroy();
+        return Redirect::to('/trang-chu');
     } 
 }

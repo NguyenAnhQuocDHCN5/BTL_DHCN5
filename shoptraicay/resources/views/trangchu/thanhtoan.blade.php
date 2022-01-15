@@ -4,52 +4,47 @@
 			<div class="container">
 				<div class="row"> 
 					<div class="col-lg-8 col-12">
+					@php
+				$content = Cart::content();
+				@endphp
 						<div class="checkout-form">
-							<h2>Make Your Checkout Here</h2>
-							<p>Please register in order to checkout more quickly</p>
-							<!-- Form -->
-							<form class="form" method="post" action="#">
+							<h2>Thông tin thanh toán</h2>
+							<p></p>
+							<form class="form" method="POST" action="{{route('xacnhan1')}}">
+							{{ csrf_field() }}	
 								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
+									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-											<label>First Name<span>*</span></label>
-											<input type="text" name="name" placeholder="" required="required">
+											<label>Họ và tên<span>*</span></label>
+											<input type="text" name="ten_nguoinhan" placeholder="" required="required">
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
-											<label>Last Name<span>*</span></label>
-											<input type="text" name="name" placeholder="" required="required">
+											<label>Email <span>*</span></label>
+											<input type="email" name="email_nguoinhan" placeholder="" required="required">
 										</div>
 									</div>
-									<div class="col-lg-6 col-md-6 col-12">
+									<div class="col-lg-6 col-md-6 col-12">	
 										<div class="form-group">
-											<label>Email Address<span>*</span></label>
-											<input type="email" name="email" placeholder="" required="required">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Phone Number<span>*</span></label>
-											<input type="number" name="number" placeholder="" required="required">
+											<label>Số điện thoại<span>*</span></label>
+											<input type="number" name="sdt_nguoinhan" placeholder="" required="required">
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-											<label>Address Line 1<span>*</span></label>
-											<input type="text" name="address" placeholder="" required="required">
+											<label>Địa chỉ<span>*</span></label>
+											<input type="text" name="diachi_nguoinhan" placeholder="" required="required">
 										</div>
 									</div>
                                     <div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-											<label>Note<span>*</span></label>
-                                            <textarea rows="9" style="background:#F6F7FB">  
+											<label>Ghi chú<span>*</span></label>
+                                            <textarea rows="9" style="background:#F6F7FB" type="text" name="ghichu_nguoinhan">  
                                         	</textarea>  
 										</div>
 									</div>
 								</div>
-							</form>
-							<!--/ End Form -->
 						</div>
 					</div>
 					<div class="col-lg-4 col-12">
@@ -59,36 +54,30 @@
 								<h2>CART  TOTALS</h2>
 								<div class="content">
 									<ul>
-										<li>Sub Total<span>$330.00</span></li>
-										<li>(+) Shipping<span>$10.00</span></li>
-										<li class="last">Total<span>$340.00</span></li>
+										<li>Tổng giỏ hàng<span>{{Cart::subtotal()}}</span></li>
+										<li>Shipping<span>Free</span></li>
+										<li class="last">Tổng thành tiền<span>{{Cart::total()}}</span></li>
 									</ul>
 								</div>
 							</div>
-							<!--/ End Order Widget -->
-							<!-- Order Widget -->
 							<div class="single-widget">
-								<h2>Payments</h2>
+								<h2>Hình thức thanh toán</h2>
 								<div class="content">
 									<div class="checkbox" >
-										<label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label>
-										<label class="checkbox-inline" style="margin-left: 0px" for="2"><input name="news" id="2" type="checkbox"> Cash On Delivery</label>
-										<label class="checkbox-inline" style="margin-left: 0px" for="3"><input name="news" id="3" type="checkbox"> PayPal</label>
+										<label class="checkbox-inline" for="1"><input name="payment_option" id="1" type="checkbox"> Thanh toán khi giao hàng</label>
+										<label class="checkbox-inline" style="margin-left: 0px" for="2"><input name="payment_option" id="2" type="checkbox"> Chuyển khoản qua ngân hàng</label>
+										<label class="checkbox-inline" style="margin-left: 0px" for="3"><input name="payment_option" id="3" type="checkbox"> Chuyển khoản qua momo</label>
 									</div>
 								</div>
 							</div>
-							<!--/ End Order Widget -->
-							<!-- Payment Method Widget -->
-							<!--/ End Payment Method Widget -->
-							<!-- Button Widget -->
 							<div class="single-widget get-button">
 								<div class="content">
 									<div class="button">
-										<a href="#" class="btn">proceed to checkout</a>
+									<input type="submit" value="Xác nhận thanh toán" name="send_order_place" class="btn" style="background:#333">
 									</div>
 								</div>
 							</div>
-							<!--/ End Button Widget -->
+							</form>
 						</div>
 					</div>
 				</div>

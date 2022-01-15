@@ -37,7 +37,7 @@
 								<h2>{{$sanpham->ten_qua}}</h2>
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
-									<span>{{$sanpham->gia_qua.'VND'}}</span>
+									<span>{{number_format($sanpham->gia_qua).' '.'VND'}}</span>
 								</span>
 								<form action="{{URL::to('/chitietgiohang')}}" method="POST">
 									{{csrf_field()}}

@@ -6,7 +6,7 @@
 				
 				<div class="col-12">
 					<!-- Shopping Summery -->
-					@php
+				@php
 				$content = Cart::content();
 				@endphp
 					<table class="table shopping-summery">
@@ -17,11 +17,12 @@
 								<th class="text-center">UNIT PRICE</th>
 								<th class="text-center">QUANTITY</th>
 								<th class="text-center">TOTAL</th> 
-								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
+								<th class="text-center"><i class="fa fa-trash-o"></i></th>
 							</tr>
 						</thead>
 						<tbody>
 						@foreach($content as $sanpham)
+					
 							<tr>
 								<td class="image" data-title="No"><img src="{{URL::to('/public/frontend/images/'.$sanpham->options->image)}}" alt="#"></td>
 								<td class="product-des" data-title="Description">
@@ -40,10 +41,10 @@
 									<span>
 								@php
 								$gia = $sanpham->price * $sanpham->qty;
-								echo $gia;
+								echo number_format($gia).' '.'VND';
 								@endphp
 								</span></td>
-								<td class="action" data-title="Remove"><a href="{{URL::to('/xoasanpham/'.$sanpham->rowId)}}"><i class="ti-trash remove-icon"></i></a></td>
+								<td class="action" data-title="Remove"><a href="{{URL::to('/xoasanpham/'.$sanpham->rowId)}}"><i class="fa fa-trash-o"></i></a></td>
 							</tr>
 							@endforeach
 						</tbody>
@@ -62,12 +63,13 @@
 								<div class="right">
 									<ul>
 										<li>Cart Subtotal<span>{{Cart::subtotal()}}</span></li>
-										<li>Shipping<span>{{Cart::tax()}}</span></li>
+										<li>Shipping<span>Free</span></li>
 										<li class="last">You Pay<span>{{Cart::total()}}</span></li>
+										
 									</ul>
 									<div class="button5">
-										<a href="{{URL::to('/thanhtoan')}}" class="btn">Checkout</a>
-										<a href="#" class="btn">Continue shopping</a>
+										<a href="{{URL::to('/thanhtoan')}}" class="btn">Thanh toán</a>
+										<a href="{{URL::to('/trang-chu')}}" class="btn">Tiếp tụp mua hàng</a>
 									</div>
 								</div>
 							</div>
