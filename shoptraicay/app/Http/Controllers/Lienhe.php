@@ -29,5 +29,10 @@ class Lienhe extends Controller
             Session::flash('message','liên hệ thành công');
             return view('admin.all_lienhe');
         }
-    
+        public function delete_lienhe($ma_lien_he){
+  
+            DB::table('lien_he')->where('ma_lien_he',$ma_lien_he)->delete();
+            Session::flash('message','Xóa liên hệ thành công');
+            return Redirect ('all-lienhe');
+        }
 }

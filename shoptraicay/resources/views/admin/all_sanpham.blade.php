@@ -5,6 +5,9 @@
     <div class="panel-heading">
       Liệt kê danh mục sản phẩm
     </div>
+    @if(Session::has('message'))
+    <span class="text-alert">{{Session::get('message')}}</span>
+    @endif
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
         <select class="input-sm form-control w-sm inline v-middle">
@@ -52,9 +55,9 @@
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $cate_pro->ma_loai }}</td>
-            <td>{{ $cate_pro->ma_loai }}</td>
+            <td>{{ $cate_pro->ten_qua }}</td>
             <td>{{ $cate_pro->gia_qua }}</td>
-            <td>{{ $cate_pro->hinh_anh_qua }}</td>
+            <td><img src="{{URL::to('public/uploads/sanpham/'.$cate_pro->hinh_anh_qua)}}" height="100" width="100"></td>
             <td>{{ $cate_pro->so_luong_qua }}</td>
             <td>{{ $cate_pro->trang_thai_qua }}</td>
             <td>{{ $cate_pro->mo_ta_qua }}</td>
@@ -63,9 +66,9 @@
             
            
             <td>
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+              <a href="{{URL::to('/edit-sanpham/'.$cate_pro->ma_qua)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-sanpham/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>

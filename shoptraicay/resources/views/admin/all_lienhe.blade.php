@@ -5,6 +5,9 @@
     <div class="panel-heading">
       Chi tiết liên hệ
     </div>
+    @if(Session::has('message'))
+    <span class="text-alert">{{Session::get('message')}}</span>
+    @endif
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
         <select class="input-sm form-control w-sm inline v-middle">
@@ -64,9 +67,8 @@
 
            
             <td>
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_lien_he)}}" class="active styling-edit" ui-toggle-class="">
-                <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->ma_lien_he)}}" class="active styling-edit" ui-toggle-class="">
+              
+              <a onclick="return confirm('Bạn có chắc là muốn xóa tin liên hệ này không ?')" href="{{URL::to('/delete-lienhe/'.$cate_pro->ma_lien_he)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
