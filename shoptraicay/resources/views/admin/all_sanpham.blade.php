@@ -42,7 +42,7 @@
             <th>Tên quả</th>
             <th>Giá quả</th>
             <th>Hình ảnh</th>
-            <th>Số lượng </th>
+           
             <th>Trạng thái</th>
             <th>Mô tả</th>
             <th>Chỉnh sửa</th>
