@@ -28,7 +28,7 @@ class Sanpham extends Controller
         $data['hinh_anh_qua'] = $request->hinh_anh_qua;
         $data['mo_ta_qua'] = $request->mo_ta_qua;
         $data['trang_thai_qua'] = $request->trang_thai_qua;
-        $data['so_luong_qua'] = $request->so_luong_qua;
+       
 
         DB::table('qua')->insert($data);
     	Session::flash('message','Thêm sản phẩm thành công');

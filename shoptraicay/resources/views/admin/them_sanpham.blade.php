@@ -36,10 +36,7 @@
                                     <label for="exampleInputPassword1">Mô tả loại quả</label>
                                     <textarea style="resize: none" rows="8" class="form-control" name="mo_ta_qua" id="ckeditor_qua" placeholder="Miêu tả loại quả"required=""></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Số lượng</label>
-                                    <input type="text" data-validation="number" data-validation-error-msg="Làm ơn điền số lượng" name="so_luong_qua" class="form-control" id="exampleInputEmail1" placeholder="Điền số lượng">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Trạng thái quả</label>
                                     <input type="text"  class="form-control"  onkeyup="ChangeToSlug();" name="trang_thai_qua"  id="slug" placeholder="trạng thái quả" required="">

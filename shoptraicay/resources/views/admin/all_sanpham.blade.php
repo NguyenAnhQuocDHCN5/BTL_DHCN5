@@ -58,7 +58,7 @@
             <td>{{ $cate_pro->ten_qua }}</td>
             <td>{{ $cate_pro->gia_qua }}</td>
             <td><img src="{{URL::to('public/uploads/sanpham/'.$cate_pro->hinh_anh_qua)}}" height="100" width="100"></td>
-            <td>{{ $cate_pro->so_luong_qua }}</td>
+            
             <td>{{ $cate_pro->trang_thai_qua }}</td>
             <td>{{ $cate_pro->mo_ta_qua }}</td>
 

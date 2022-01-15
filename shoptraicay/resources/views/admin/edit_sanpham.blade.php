@@ -33,10 +33,7 @@
                                     <label for="exampleInputPassword1">Mô tả loại quả</label>
                                      <textarea style="resize: none" rows="8" class="form-control" name="mo_ta_qua" id="ckeditor_qua">{{$edit_value->mo_ta_qua}}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Số lượng quả</label>
-                                    <input type="text" value="{{$edit_value->so_luong_qua}}" onkeyup="ChangeToSlug();" name="so_luong_qua" class="form-control" id="slug" >
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Trạng thái quả</label>
                                     <input type="text" value="{{$edit_value->trang_thai_qua}}" onkeyup="ChangeToSlug();" name="trang_thai_qua" class="form-control" id="slug" >

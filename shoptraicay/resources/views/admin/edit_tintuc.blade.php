@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                           Chỉnh sửa danh mục sản phẩm
+                           Chỉnh sửa tin tức
                         </header>
                         
                         <div class="panel-body">
