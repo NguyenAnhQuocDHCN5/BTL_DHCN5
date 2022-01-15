@@ -151,9 +151,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                    
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Danh sách Admin</a></li>
+						<li><a href="{{URL::to('/all-admin')}}">Danh sách Admin</a></li>
 						
-                        <li><a href="grids.html">Xử lý Admin</a></li>
+                        
                        
                     </ul>
                 </li>

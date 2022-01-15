@@ -3,7 +3,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt kê danh mục sản phẩm
+      Danh sách Admin
     </div>
     @if(Session::has('message'))
     <span class="text-alert">{{Session::get('message')}}</span>
@@ -38,23 +38,33 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên danh mục</th>
-            
+            <th>Tên đăng nhập</th>
+            <th>Mật khẩu</th>
+            <th>Tên Admin</th>
+            <th>Điện thoại</th>
+            <th>Địa chỉ</th>
+             
        
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-        @foreach($all_category_product as $key => $cate_pro)
+        @foreach($all_admim as $key => $cate_pro)
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{ $cate_pro->ten_loai }}</td>
+            <td>{{ $cate_pro->ten_dn }}</td>
+            <td>{{ $cate_pro->mat_khau }}</td>
+            <td>{{ $cate_pro->ten_adm }}</td>
+            <td>{{ $cate_pro->sdt }}</td>
+            <td>{{ $cate_pro->dia_chi }}</td>
            
+
+            
            
             <td>
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+            <a href="{{URL::to('/edit-admin/'.$cate_pro->ma_adm)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không ?')" href="{{URL::to('/delete-category-product/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa Admin này không ?')" href="{{URL::to('/delete-admin/'.$cate_pro->ma_adm)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>

@@ -5,6 +5,9 @@
     <div class="panel-heading">
       Liệt kê tin tức
     </div>
+    @if(Session::has('message'))
+    <span class="text-alert">{{Session::get('message')}}</span>
+    @endif
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
         <select class="input-sm form-control w-sm inline v-middle">
@@ -49,7 +52,7 @@
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $cate_pro->tieu_de }}</td>
-            <td>{{ $cate_pro->hinh_anh_tin_tuc }}</td>
+            <td><img src="{{URL::to('public/uploads/tintuc/'.$cate_pro->hinh_anh_tin_tuc)}}" height="200" width="200"></td>
             <td>{{ $cate_pro->noi_dung_tin_tuc }}</td>
             <td>{{ $cate_pro->ngay_dang_tin_tuc }}</td>
             
@@ -57,9 +60,9 @@
             
            
             <td>
-              <a href="{{URL::to('/edit-category-product/'.$cate_pro->ma_tin_tuc)}}" class="active styling-edit" ui-toggle-class="">
+              <a href="{{URL::to('/edit-tintuc/'.$cate_pro->ma_tin_tuc)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-category-product/'.$cate_pro->ma_tin_tuc)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa tin này ?')" href="{{URL::to('/delete-tintuc/'.$cate_pro->ma_tin_tuc)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
