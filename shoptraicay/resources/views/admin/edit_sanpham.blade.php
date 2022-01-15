@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả loại quả</label>
-                                     <textarea style="resize: none" rows="8" class="form-control" name="mo_ta_qua" id="ckeditor2">{{$edit_value->mo_ta_qua}}</textarea>
+                                     <textarea style="resize: none" rows="8" class="form-control" name="mo_ta_qua" id="ckeditor_qua">{{$edit_value->mo_ta_qua}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số lượng quả</label>

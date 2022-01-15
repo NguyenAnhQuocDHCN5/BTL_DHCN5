@@ -195,9 +195,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 CKEDITOR.replace('ckeditor_tintuc')
 CKEDITOR.replace('ckeditor_qua')
-CKEDITOR.replace('ckeditor1')
-CKEDITOR.replace('ckeditor1')
-CKEDITOR.replace('ckeditor1')
 </script>
 <!-- morris JavaScript -->	
 <script>

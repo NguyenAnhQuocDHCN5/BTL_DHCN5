@@ -22,11 +22,6 @@
                                     <label for="exampleInputEmail1">Tên loại</label>
                                     <input type="text"  class="form-control"  onkeyup="ChangeToSlug();" name="ten_loai"  id="slug" placeholder="tên loại quả" required="">
                                 </div>
-                                
-                                
-                               
-                               
-                               
                                 <button type="submit" name="add_category_product" class="btn btn-info">Thêm loại quả</button>
                                 </form>
                             </div>
