@@ -28,8 +28,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +0258130005</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> nguyenanhquoc12a1@gmail.com</a></li>
+								<li><a href=""><i class="fa fa-phone"></i> +0965540620</a></li>
+								<li><a href=""><i class="fa fa-envelope"></i> shoptraicay@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -53,6 +53,8 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
+						&nbsp &nbsp &nbsp<a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/images/logo.jpg')}}" alt="" style="heigh:60px; width:60px;" /></a>
+							<p><strong>SHOP TRÁI CÂY</strong></p>
 						</div>
 						<div class="btn-group pull-right">
 						</div>
@@ -125,7 +127,7 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-	<section id="form"><!--form-->
+	<section ><!--form-->
 	@yield('content1')	
 	</section><!--/form-->
 	

@@ -4,15 +4,15 @@
 <div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 								<div class="view-product">
-									<img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:360px;height:295px; alt="" />
+									<img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:360px;height:295px; alt="" />
 								</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
 										<div class="item active">
-										  <a href=""><img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
-										  <a href=""><img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px;  alt=""></a>
-										  <a href=""><img src="{{URL::to('/public/frontend/images/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
+										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
+										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px;  alt=""></a>
+										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
 										</div>
 										<!-- <div class="item">
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
@@ -29,7 +29,7 @@
 									<i class="fa fa-angle-right"></i>
 								  </a> -->
 							</div>
-
+	
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
@@ -61,19 +61,33 @@
 					<div class="category-tab shop-details-tab"><!--category-tab-->
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#reviews" data-toggle="tab">Mô tả sản phẩm</a></li>
+								<li class="active"><a href="#review" data-toggle="tab">Mô tả sản phẩm</a></li>
+								<li><a href="#reviews" data-toggle="tab">Bình luận</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
-							<div class="tab-pane fade active in" id="reviews" >
+							<div class="tab-pane fade active in" id="review" >
+								{{$sanpham->mo_ta_qua}}
+							</div>
+							<div class="tab-pane fade " id="reviews" >
 								<div class="col-sm-12">
-									<p>
-									{{$sanpham->mo_ta_qua}}
-									</p>
+									<h2>Thêm bình luận</h2>
+									<form action="{{route('binhluan1')}}" method="POST">
+										<span>
+											<input type="text" name="ten_binhluan" placeholder="Tên"/>
+											<input type="email" name="email_binhluan" placeholder="Email "/>
+											<input name="sanphamid1" type="hidden" value="{{$sanpham->ma_qua}}"/>
+										</span>
+										<textarea name="noidung_binhluan" ></textarea>
+										<button type="submit" class="btn btn-default pull-right">
+											Gửi
+										</button>
+									</form>
 								</div>
 							</div>
 							
 						</div>
 					</div><!--/category-tab-->
+					
 @endforeach
 @endsection

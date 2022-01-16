@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<div class="container">
+<div class="container" style="margin-top: 54px;margin-bottom: 40px;">
 			<div class="row" style="margin-bottom:1em;">
 				
 				<div class="col-sm-4 col-sm-offset-5">

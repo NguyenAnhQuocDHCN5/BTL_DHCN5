@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<section>
+<section style="margin-top: 54px;margin-bottom: 90px;">
     <div class="container">
         <div class="row">
 		<div class="col-sm-3">
@@ -9,13 +9,13 @@
 				    <div class="panel-group category-products"  id="accordian">
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h4 class="panel-title"><a href="#">Tài khoản</a></h4>
+								<h4 class="panel-title"><a href="#"><i class="fa fa-user"></i>&nbsp&nbsp Tài khoản</a></h4>
 							</div>
 						</div>
 
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								<h4 class="panel-title"><a href="#">Đơn hàng</a></h4>
+								<h4 class="panel-title"><a href="#"><i class="fa fa-archive"></i>&nbsp&nbspĐơn hàng</a></h4>
 							</div>
 						</div>
 					</div>

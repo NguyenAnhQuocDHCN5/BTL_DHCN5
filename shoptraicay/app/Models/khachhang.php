@@ -18,4 +18,5 @@ class khachhang extends Model
         'kh_diachi',
     ];
     
+    
 }

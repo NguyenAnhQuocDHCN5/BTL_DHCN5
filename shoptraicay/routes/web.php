@@ -89,3 +89,5 @@ Route::get('/congsl/{rowId}','HomeController@congsl');
 Route::get('/trusl/{rowId}','HomeController@trusl');
 Route::get('/thanhtoan','HomeController@checkout');
 Route::post('/xacnhan','HomeController@xacnhanthanhtoan')->name('xacnhan1');
+Route::get('/tatcasanpham','HomeController@tatcasanpham');
+Route::post('/binhluan','HomeController@binhluan')->name('binhluan1');

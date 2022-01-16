@@ -12,6 +12,8 @@ use App\Models\qua;
 use App\Models\donhang;
 use App\Models\tintuc;
 use App\Models\chitietdondathang;
+use App\Models\khachhang;
+use App\Models\binhluan;
 use Cart;
 session_start();
 
@@ -20,7 +22,7 @@ class HomeController extends Controller
     public function index()
     {
         $loaiqua =loaiqua::all();  
-        $qua =qua::all(); 
+        $qua =qua::paginate(6); 
         return view('trangchu.home')->with('loaiqua',$loaiqua)->with('qua',$qua);
     }
     public function dangnhaptrangchu()
@@ -178,5 +180,27 @@ class HomeController extends Controller
         }
         Cart::destroy();
         return Redirect::to('/trang-chu');
+    } 
+    public function tatcasanpham()  
+    {
+        $qua =qua::all(); 
+        return view('trangchu.tatca_sanpham')->with('qua',$qua);
+    } 
+    public function binhluan(Request $request)  
+    {
+        $idsanpham = $request->sanphamid1;
+        $validatedData = $request->validate([
+            'ten_binhluan' => ['required',],
+            'email_binhluan' => ['required'],
+            'noidung_binhluan' => ['required'], 
+        ]);
+        $data =$request->all();
+        $data1=binhluan::insert([
+            'binhluan_ten'=>$data['ten_binhluan'],
+            'binhluan_email'=>$data['email_binhluan'],
+            'binhluan_noidung'=>$data['noidung_binhluan'],
+            'ma_qua'=>$idsanpham
+        ]); 
+        dd($data1);
     } 
 }

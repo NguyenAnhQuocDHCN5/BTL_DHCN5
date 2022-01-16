@@ -23,8 +23,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +0258130005</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> nguyenanhquoc12a1@gmail.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +0965540620</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> shoptraicay@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -48,12 +48,15 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
+						&nbsp &nbsp &nbsp<a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/images/logo.jpg')}}" alt="" style="heigh:60px; width:60px;" /></a>
+							<p><strong>SHOP TRÁI CÂY</strong></p>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="{{URL::to('/trangcanhan')}}"><i class="fa fa-user"></i>
+								<li>
+									<a href="{{URL::to('/trangcanhan')}}"><i class="fa fa-user"></i>
 									@php
         							$kh_ten = Session::get('kh_ten');
                						 if($kh_ten)
@@ -61,7 +64,8 @@
                 			    		echo $kh_ten;    
                 					}
                						 @endphp
-								</a></li>
+									</a>
+								</li>
 								<li><a href="{{URL::to('/giohang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 								@php
                                    $kh_ten = Session::get('kh_ten');
@@ -158,15 +162,13 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Danh mục sản phẩm</h2>
-                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->  
-                        <div class="panel panel-default">	
+                    <div class="panel-group category-products" id="accordian" style="background-color:#e4e2e2;"><!--category-productsr-->  
 							@foreach ($loaiqua as $loai)
                             <div class="panel-heading" >
 							 <h3 class="panel-title"><a href="#">{{$loai->ten_loai}}</a></h3>
 							 <br>
                             </div>
 							@endforeach 
-                        </div>
                     </div><!--/category-products-->
                 </div>
             </div>

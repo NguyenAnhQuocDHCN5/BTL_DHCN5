@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<div class="shopping-cart section">
+<div class="shopping-cart section"  style="margin-top: 54px;">
 		<div class="container">
 			<div class="row">
 				
@@ -24,7 +24,7 @@
 						@foreach($content as $sanpham)
 					
 							<tr>
-								<td class="image" data-title="No"><img src="{{URL::to('/public/frontend/images/'.$sanpham->options->image)}}" alt="#"></td>
+								<td class="image" data-title="No"><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->options->image)}}" alt="#"></td>
 								<td class="product-des" data-title="Description">
 									<p class="product-name"><a href="#">{{$sanpham->name}}</a></p>
 									<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
@@ -68,8 +68,8 @@
 										
 									</ul>
 									<div class="button5">
-										<a href="{{URL::to('/thanhtoan')}}" class="btn">Thanh toán</a>
-										<a href="{{URL::to('/trang-chu')}}" class="btn">Tiếp tụp mua hàng</a>
+										<a href="{{URL::to('/thanhtoan')}}" class="btn1">Thanh toán</a>
+										<a href="{{URL::to('/trang-chu')}}" class="btn1">Tiếp tụp mua hàng</a>
 									</div>
 								</div>
 							</div>

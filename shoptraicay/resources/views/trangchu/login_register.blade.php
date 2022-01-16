@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-		<div class="container">
+		<div class="container" style="margin-top: 54px;margin-bottom: 194px;">
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-5" style="margin-bottom:1em;">
 					<div class="login-form"><!--login form-->

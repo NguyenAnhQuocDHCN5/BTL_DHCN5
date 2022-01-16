@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<div id="contact-page" class="container">
+<div id="contact-page" class="container" style="margin-top: 36px;">
     	<div class="bg">
 	    	<!-- <div class="row">    		
 	    		<div class="col-sm-12">    			   			
@@ -37,8 +37,8 @@
 	    			<div class="contact-info">
 	    				<h2 class="title text-center">Thông tin liên hệ</h2>
 	    				<address>
-	    					<p>Shoptraicay</p>
-							<p>101 Phạm Ngọc Thạch</p>
+	    					<p>SHOP TRÁI CÂY</p>
+							<p>Địa chỉ: 1 Phạm Ngọc Thạch</p>
 							<p>Nha Trang</p>
 							<p>Số điện thoại: 0965540620</p>
 							<p>Email: shoptraicay@gmail.com</p>

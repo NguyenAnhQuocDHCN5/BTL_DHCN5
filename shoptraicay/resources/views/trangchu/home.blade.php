@@ -8,7 +8,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                     <div class="productinfo text-center">
-									<a href="{{URL::to('/chitietsanpham/'.$qua->ma_qua)}}"> <img src="{{('public/frontend/images/'.$qua->hinh_anh_qua)}}" style="width:250px;height:230px; alt="" /></a> 
+									<a href="{{URL::to('/chitietsanpham/'.$qua->ma_qua)}}"> <img src="{{('public/uploads/sanpham/'.$qua->hinh_anh_qua)}}" style="width:250px;height:230px; alt="" /></a> 
                                         <h2>{{number_format($qua->gia_qua)}} VND</h2>
                                         <p>{{$qua->ten_qua}}</p>
                                         <input name="sanpham_id" type="hidden" value="{{$qua->ma_qua}}"/>
@@ -18,7 +18,10 @@
                         </div>
                     </div>
                     </a>
-                   	@endforeach
+                   	@endforeach 
+                    <div style=" text-align: right;">
+                    <a class="btn btn-primary" style="margin-top: 0px; " href="#">Xem thêm</a>
+                    </div>
                 </div><!--features_items-->
 
                 <div class="recommended_items"><!--recommended_items-->
@@ -32,7 +35,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="{{('public/frontend/images/man_bac.jpg')}}" style="width:250px;height:230 px; alt="" />
+                                                <img src="{{('public/uploads/sanpham/man_bac.jpg')}}" style="width:250px;height:230 px; alt="" />
                                                 <h2>75.000 VND</h2>
                                                 <p>Mận Bắc</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
@@ -47,7 +50,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="{{'public/frontend/images/kiwi.jpg'}}" alt="" />
+                                                <img src="{{'public/uploads/sanpham/kiwi.jpg'}}" alt="" />
                                                 <h2>80.000 VND</h2>
                                                 <p>KiWi</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>

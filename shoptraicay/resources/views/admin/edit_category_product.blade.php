@@ -17,7 +17,7 @@
                                     <input type="text" value="{{$edit_value->ten_loai}}" onkeyup="ChangeToSlug();" name="ten_loai" class="form-control" id="slug" >
                                 </div>
                                   
-                              
+                                
                                 
                                 <button type="submit" name="update_category_product" class="btn btn-info">Cập nhật danh mục</button>
                                 </form>
