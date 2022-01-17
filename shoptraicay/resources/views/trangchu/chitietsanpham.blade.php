@@ -72,7 +72,8 @@
 							<div class="tab-pane fade " id="reviews" >
 								<div class="col-sm-12">
 									<h2>Thêm bình luận</h2>
-									<form action="{{route('binhluan1')}}" method="POST">
+									<form action="{{URL::to('/binhluan')}}" method="POST">
+									{{ csrf_field() }}	
 										<span>
 											<input type="text" name="ten_binhluan" placeholder="Tên"/>
 											<input type="email" name="email_binhluan" placeholder="Email "/>

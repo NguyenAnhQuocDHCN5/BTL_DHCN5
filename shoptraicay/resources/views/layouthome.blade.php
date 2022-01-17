@@ -102,7 +102,10 @@
 								<li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="{{URL::to('/tatcasanpham')}}">Tất cả sản phẩm</a></li>							
+                                        <li><a href="{{URL::to('/tatcasanpham')}}">Tất cả sản phẩm</a></li>
+										@foreach ($loaiqua as $loai)	
+										<li><a href="{{URL::to('/sanphamtheoloai/'.$loai->ma_loai)}}">{{$loai->ten_loai}}</a></li>	
+										@endforeach							
                                     </ul>
                                 </li>                                   
                                 <li><a href="{{URL::to('/tintuc')}}">Tin tức</a></li>                           
@@ -165,7 +168,7 @@
                     <div class="panel-group category-products" id="accordian" style="background-color:#e4e2e2;"><!--category-productsr-->  
 							@foreach ($loaiqua as $loai)
                             <div class="panel-heading" >
-							 <h3 class="panel-title"><a href="#">{{$loai->ten_loai}}</a></h3>
+							 <h3 class="panel-title"><a href="{{URL::to('/loaisanpham/'.$loai->ma_loai)}}">{{$loai->ten_loai}}</a></h3>
 							 <br>
                             </div>
 							@endforeach 

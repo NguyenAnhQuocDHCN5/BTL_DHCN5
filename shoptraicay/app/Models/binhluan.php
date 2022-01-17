@@ -15,9 +15,6 @@ class binhluan extends Model
         'binhluan_email',
         'binhluan_noidung',
         'ma_qua',
-        'binhluan_ngay',
     ];
-    // const CREATED_AT = 'binhluan_ngay';
-    // public $timestamps = TRUE;
-
+ 
 }

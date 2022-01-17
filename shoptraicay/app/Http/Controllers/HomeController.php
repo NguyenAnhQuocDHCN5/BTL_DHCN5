@@ -14,6 +14,7 @@ use App\Models\tintuc;
 use App\Models\chitietdondathang;
 use App\Models\khachhang;
 use App\Models\binhluan;
+use App\Models\lienhe;
 use Cart;
 session_start();
 
@@ -39,6 +40,24 @@ class HomeController extends Controller
     public function lienhe(){
         return view('trangchu.lienhe');
     }
+    public function guilienhe(Request $request){
+        $validatedData = $request->validate([
+            'ten_lienhe' => ['required'],
+            'email_lienhe' => ['required'],
+            'tieude_lienhe' => ['required'], 
+            'noidung_lienhe' => ['required'],
+            'sdt_lienhe' => ['required'],
+        ]);
+        $data =$request->all();
+        $data1=lienhe::create([
+            'ten_nguoi_lien_he'=>$data['ten_lienhe'],
+            'email_nguoi_lien_he'=>$data['email_lienhe'],
+            'tieude_lien_he'=>$data['tieude_lienhe'],
+            'sdt_nguoi_lien_he'=>$data['sdt_lienhe'],
+            'noi_dung'=>$data['noidung_lienhe'],
+        ]);
+        return Redirect::to('/lienhe');
+    }
     public function chitietsanpham($ma_qua){
         $loaiqua =loaiqua::all();  
         $chitietqua = qua::where('ma_qua',$ma_qua)->get();
@@ -61,7 +80,7 @@ class HomeController extends Controller
             'kh_diachi'=>$data['diachi_kh'],
             'kh_matkhau'=>$data['mat_khau_kh']
         ]); 
-        Session::flash('message','Bạn Đã đăng ký tài khoản thành công, mời bạn đăng nhập');
+        Session::flash('message','Đăng ký tài khoản thành công, mời bạn đăng nhập');
         return Redirect::to('/login');
     }
     public function dangnhapkh(Request $request){
@@ -85,7 +104,7 @@ class HomeController extends Controller
 
     public function tintuc()
     {
-        $tintuc = tintuc::all();
+        $tintuc = tintuc::paginate(4);
         return view('trangchu.tintuc')->with('tintuc',$tintuc);
     }
 
@@ -163,10 +182,10 @@ class HomeController extends Controller
             'sdt_nguoi_nhan'=>$data['sdt_nguoinhan'],
             'dia_chi_nguoi_nhan'=>$data['diachi_nguoinhan'],
             'ghi_chu_dat_hang'=>$data['ghichu_nguoinhan'],
-            'tong_tien'=>Cart::total()
+            'tong_tien'=>Cart::total(),
+            'tinh_trang_dat_hang'=>'Đang xử lý'
         ]);
 
-    
         $content = Cart::content();
         foreach($content as $sanpham){
             $thanhtien = $sanpham->price * $sanpham->qty;
@@ -192,15 +211,30 @@ class HomeController extends Controller
         $validatedData = $request->validate([
             'ten_binhluan' => ['required',],
             'email_binhluan' => ['required'],
-            'noidung_binhluan' => ['required'], 
+            'noidung_binhluan' => ['required'] 
         ]);
         $data =$request->all();
-        $data1=binhluan::insert([
+        $data1=binhluan::create([
             'binhluan_ten'=>$data['ten_binhluan'],
             'binhluan_email'=>$data['email_binhluan'],
             'binhluan_noidung'=>$data['noidung_binhluan'],
-            'ma_qua'=>$idsanpham
+            'ma_qua'=>$idsanpham,
         ]); 
-        dd($data1);
+        return Redirect::back();
+    } 
+    public function loaisanpham($ma_loai)
+    {
+        $loaiqua =loaiqua::all();  
+        $listsanpham =DB::table('qua')->join('loai_qua','qua.ma_loai','=','loai_qua.ma_loai')->where('loai_qua.ma_loai',$ma_loai)->limit(6)->get();
+        $tenloai = loaiqua::where('ma_loai',$ma_loai)->get();
+        $ma_loai_qua=$ma_loai;
+        return view('trangchu.danhmucsanpham')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai)->with('ma_loai_qua',$ma_loai_qua);
+    } 
+    public function sanphamtheoloai($ma_loai)
+    {
+        $loaiqua =loaiqua::all();  
+        $listsanpham =DB::table('qua')->join('loai_qua','qua.ma_loai','=','loai_qua.ma_loai')->where('loai_qua.ma_loai',$ma_loai)->get();
+        $tenloai = loaiqua::where('ma_loai',$ma_loai)->get();
+        return view('trangchu.sanphamtheoloai')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai);
     } 
 }

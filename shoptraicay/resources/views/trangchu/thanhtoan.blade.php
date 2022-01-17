@@ -55,7 +55,7 @@
 								<div class="content">
 									<ul>
 										<li>Tổng giỏ hàng<span>{{Cart::subtotal()}}</span></li>
-										<li>Shipping<span>Free</span></li>
+										<li>Phí vận chuyển<span>Free</span></li>
 										<li class="last">Tổng thành tiền<span>{{Cart::total()}}</span></li>
 									</ul>
 								</div>

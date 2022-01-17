@@ -15,12 +15,7 @@
         				</ul>
     				</div>
     				@endif
-    				@php
-    				if(Session::has('message'))
-    				{
-      					echo Session::get('message');
-    				}
-    				@endphp
+    				
 						<form action="{{route('dangkikh')}}" method="post">
 						{{csrf_field()}}
 						<input type="email" name="kh_email" placeholder="Email" >
@@ -29,7 +24,7 @@
             			<input type="text" name="diachi_kh" placeholder="Địa chỉ" >
 						<input type="password"  name="mat_khau_kh" placeholder="Mật khẩu">
             			<input type="password" name="nhaplaimatkhau_kh" placeholder="Nhập lại mật khẩu" >
-							<button type="submit" class="btn btn-default">Signup</button>
+							<button type="submit" class="btn btn-default">Đăng kí</button>
 						</form>
 					</div><!--/sign up form-->
 				</div>

@@ -18,8 +18,10 @@ class donhang extends Model
         'ghi_chu_dat_hang',
         'tong_tien',
         'tinh_trang_dat_hang',
+        'hinhthuc_thanhtoan',
         'ngay_dat',
         'ngay_giao',
         'ma_khach_hang',
     ];
+    
 }

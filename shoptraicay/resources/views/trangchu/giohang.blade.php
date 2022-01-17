@@ -62,9 +62,9 @@
 							<div class="col-lg-4 col-md-7 col-12">
 								<div class="right">
 									<ul>
-										<li>Cart Subtotal<span>{{Cart::subtotal()}}</span></li>
-										<li>Shipping<span>Free</span></li>
-										<li class="last">You Pay<span>{{Cart::total()}}</span></li>
+										<li>Tổng giỏ hàng<span>{{Cart::subtotal()}}</span></li>
+										<li>Phí vận chuyển<span>Free</span></li>
+										<li class="last">Tổng thành tiền<span>{{Cart::total()}}</span></li>
 										
 									</ul>
 									<div class="button5">

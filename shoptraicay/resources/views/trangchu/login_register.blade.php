@@ -11,6 +11,12 @@
    						     echo Session::get('message_1');
    						 }
    						 @endphp
+							@php
+    				if(Session::has('message'))
+    				{
+      					echo Session::get('message');
+    				}
+    				@endphp
 						<form action="{{route('dangnhapkh')}}" method="post">
 						{{csrf_field()}}
 						<input type="email" name="email_kh" placeholder="Email">

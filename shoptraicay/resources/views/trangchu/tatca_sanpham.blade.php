@@ -2,7 +2,6 @@
 @section('content1')
 <div class="container">
 <div class="features_items"><!--features_items-->
-                   
 					@foreach ($qua as $qua)
                     <a href="#">
                     <div class="col-sm-3">

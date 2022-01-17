@@ -90,4 +90,8 @@ Route::get('/trusl/{rowId}','HomeController@trusl');
 Route::get('/thanhtoan','HomeController@checkout');
 Route::post('/xacnhan','HomeController@xacnhanthanhtoan')->name('xacnhan1');
 Route::get('/tatcasanpham','HomeController@tatcasanpham');
-Route::post('/binhluan','HomeController@binhluan')->name('binhluan1');
+Route::post('/binhluan','HomeController@binhluan');
+Route::post('/guilienhe','HomeController@guilienhe');
+Route::get('/loaisanpham/{ma_loai}','HomeController@loaisanpham');
+Route::get('/sanphamtheoloai/{ma_loai}','HomeController@sanphamtheoloai');
+

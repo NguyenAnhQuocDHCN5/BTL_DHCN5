@@ -14,9 +14,11 @@ class lienhe extends Model
         'ten_nguoi_lien_he',
         'sdt_nguoi_lien_he',
         'email_nguoi_lien_he',
-        'dia_chi_nguoi_lien_he',
+        'tieude_lien_he',
         'noi_dung',
         'ngay_lien_he',
         'ma_khach_hang',
     ];
+    const CREATED_AT = 'ngay_lien_he';
+    const UPDATED_AT = NULL;
 }

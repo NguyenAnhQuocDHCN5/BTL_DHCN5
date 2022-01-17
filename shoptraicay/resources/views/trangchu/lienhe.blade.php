@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<div id="contact-page" class="container" style="margin-top: 36px;">
+<div id="contact-page" class="container" style="margin-top: 36px; margin-bottom	: 14px;">
     	<div class="bg">
 	    	<!-- <div class="row">    		
 	    		<div class="col-sm-12">    			   			
@@ -14,18 +14,22 @@
 	    			<div class="contact-form">
 	    				<h2 class="title text-center">Liên hệ</h2>
 	    				<div class="status alert alert-success" style="display: none"></div>
-				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+				    	<form id="main-contact-form" class="contact-form row" name="contact-form" action="{{URL::to('/guilienhe')}}" method="post">
+						{{ csrf_field() }}	
 				            <div class="form-group col-md-6">
-				                <input type="text" name="name" class="form-control" required="required" placeholder="Tên">
+				                <input type="text" name="ten_lienhe" class="form-control" required="required" placeholder="Tên">
 				            </div>
 				            <div class="form-group col-md-6">
-				                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+				                <input type="email" name="email_lienhe" class="form-control" required="required" placeholder="Email">
+				            </div>
+				            <div class="form-group col-md-6">
+				                <input type="text" name="tieude_lienhe" class="form-control" required="required" placeholder="Tiêu đề">
+				            </div>
+							<div class="form-group col-md-6">
+				                <input type="number" name="sdt_lienhe" class="form-control" required="required" placeholder="Số điện thoại">
 				            </div>
 				            <div class="form-group col-md-12">
-				                <input type="text" name="subject" class="form-control" required="required" placeholder="Tiêu đề">
-				            </div>
-				            <div class="form-group col-md-12">
-				                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Nội dung"></textarea>
+				                <textarea name="noidung_lienhe" id="message" required="required" class="form-control" rows="8" placeholder="Nội dung"></textarea>
 				            </div>                        
 				            <div class="form-group col-md-12">
 				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Gửi">
