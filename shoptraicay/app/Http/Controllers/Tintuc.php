@@ -12,7 +12,8 @@ class Tintuc extends Controller
         return view('admin.them_tintuc');
     }
     public function all_tintuc(){
-    $all_tintuc = DB::table('tin_tuc')->get();
+    $all_tintuc = DB::table('tin_tuc')
+    ->orderby('tin_tuc.ma_tin_tuc','desc')->paginate(5);
     $manager_tintuc  = view('admin.all_tintuc')->with('all_tintuc',$all_tintuc);
     return view('admin.admin_layout')->with('admin.all_tintuc', $manager_tintuc);
     

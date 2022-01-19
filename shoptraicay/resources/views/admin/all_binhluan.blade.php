@@ -3,7 +3,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Đơn đặt hàng
+      Chi tiết bình luận
     </div>
     @if(Session::has('message'))
     <span class="text-alert">{{Session::get('message')}}</span>
@@ -38,40 +38,37 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Tên </th>
-            <th>Email</th>
-            <th>Số điện thoại</th>
-            <th>Địa chỉ </th>
-            <th>Ghi chú</th>
-            <th>Tổng tiền</th>
-            <th>Tình trạng </th>
-            <th>Ngày đặt</th>
-            <th>Ngày giao</th>
+            <th>Tên bình luận </th>
+            <th>Email bình luận</th>
+            <th>Nội dung bình luận</th>
+            <th>Tên sản phẩm </th>           
+            <th>Ngày bình luận</th>
+            
+            
             
        
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-        @foreach($all_dondathang as $key => $cate_pro)
+        @foreach($all_binhluan as $key => $cate_pro)
+        
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{ $cate_pro->ten_nguoi_nhan }}</td>
-            <td>{{ $cate_pro->email_nguoi_nhan }}</td>
-            <td>{{ $cate_pro->sdt_nguoi_nhan }}</td>
-            <td>{{ $cate_pro->dia_chi_nguoi_nhan }}</td>
-            <td>{{ $cate_pro->ghi_chu_dat_hang }}</td>
-            <td>{{ $cate_pro->tong_tien }}</td>
-            <td>{{ $cate_pro->tinh_trang_dat_hang }}</td>
-            <td>{{ $cate_pro->ngay_dat }}</td>
-            <td>{{ $cate_pro->ngay_giao }}</td>
+            <td>{{ $cate_pro->binhluan_ten }}</td>
+            <td>{{ $cate_pro->binhluan_email }}</td>
+            <td>{{ $cate_pro->binhluan_noidung	 }}</td>
+            <td>{{ $cate_pro->ma_qua  }}</td>
+            <td>{{ $cate_pro->binhluan_ngay }}</td>
+         
+          
+            
+           
+
            
             <td>
               
-                <a href="{{URL::to('/don-hang/'.$cate_pro->ma_don_dat_hang )}}" class="active styling-edit" ui-toggle-class="">
-                <i class="fa fa-eye text-success text-active"></i></a>
-
-              <a onclick="return confirm('Bạn có chắc là muốn xóa đơn này không')" href="{{URL::to('/delete-dondathang/'.$cate_pro->ma_don_dat_hang )}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa tin liên hệ này không ?')" href="{{URL::to('/delete-binhluan/'.$cate_pro->ma_binhluan)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
@@ -88,10 +85,9 @@
         
         <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">
-          @for($i = 1; $i<=$all_dondathang->lastPage(); $i++)
-					<li><a href="{{URL::to('/all-dondathang').'?page='.$i}}" class="{{$i==$all_dondathang->currentPage()?'active':''}}"> {{$i}}</a> </li>
+          @for($i = 1; $i<=$all_binhluan->lastPage(); $i++)
+					<li><a href="{{URL::to('/all-binhluan').'?page='.$i}}" class="{{$i==$all_binhluan->currentPage()?'active':''}}"> {{$i}}</a> </li>
 					@endfor
-          </ul>
         </div>
       </div>
     </footer>

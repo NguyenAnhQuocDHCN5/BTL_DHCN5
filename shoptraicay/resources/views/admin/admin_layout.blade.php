@@ -64,8 +64,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Thông tin</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
-                <li><a href="{{URL::to('/admin')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                
+                <li><a href="{{URL::to('/logout-admin')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -164,6 +164,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
                         <li><a href="{{URL::to('/all-lienhe')}}">Chi tiết liên hệ</a></li>
+                     
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>Bình luận </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/all-binhluan')}}">Bình luận của khách hàng</a></li>
                      
                     </ul>
                 </li>

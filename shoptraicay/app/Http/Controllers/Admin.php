@@ -11,8 +11,9 @@ class Admin extends Controller
         
     
         public function all_admin(){
-        $all_admin = DB::table('adm')->get();
-        $manager_admin  = view('admin.all_admin')->with('all_admim',$all_admin);
+        $all_admin = DB::table('adm')
+        ->orderby('adm.ma_adm','desc')->paginate(5);
+        $manager_admin  = view('admin.all_admin')->with('all_admin',$all_admin);
         return view('admin.admin_layout')->with('admin.all_admin', $manager_admin);
         
 }

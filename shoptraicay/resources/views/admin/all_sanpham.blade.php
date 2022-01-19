@@ -38,7 +38,7 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Mã loại</th>
+            <th>Tên sản phẩm</th>
             <th>Tên quả</th>
             <th>Giá quả</th>
             <th>Hình ảnh</th>
@@ -54,13 +54,13 @@
         @foreach($all_sanpham as $key => $cate_pro)
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{ $cate_pro->ma_loai }}</td>
+            <td>{{ $cate_pro->ten_loai }}</td>
             <td>{{ $cate_pro->ten_qua }}</td>
             <td>{{ $cate_pro->gia_qua }}</td>
             <td><img src="{{URL::to('public/uploads/sanpham/'.$cate_pro->hinh_anh_qua)}}" height="100" width="100"></td>
             
-            <td>{{ $cate_pro->trang_thai_qua }}</td>
-            <td>{{ $cate_pro->mo_ta_qua }}</td>
+            <td>{{ $cate_pro->tinh_trang_qua }}</td>
+            <td>{!!$cate_pro->mo_ta_qua!!}</td>
 
 
             
@@ -68,7 +68,7 @@
             <td>
               <a href="{{URL::to('/edit-sanpham/'.$cate_pro->ma_qua)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-sanpham/'.$cate_pro->ma_loai)}}" class="active styling-edit" ui-toggle-class="">
+              <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này ko?')" href="{{URL::to('/delete-sanpham/'.$cate_pro->ma_qua)}}" class="active styling-edit" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i>
               </a>
             </td>
@@ -82,17 +82,12 @@
     <footer class="panel-footer">
       <div class="row">
         
-        <div class="col-sm-5 text-center">
-          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-        </div>
+        
         <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">
-            <li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-            <li><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href=""><i class="fa fa-chevron-right"></i></a></li>
+          @for($i = 1; $i<=$all_sanpham->lastPage(); $i++)
+					<li><a href="{{URL::to('/all-sanpham').'?page='.$i}}" class="{{$i==$all_sanpham->currentPage()?'active':''}}"> {{$i}}</a> </li>
+					@endfor
           </ul>
         </div>
       </div>
