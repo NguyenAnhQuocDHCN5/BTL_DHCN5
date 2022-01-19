@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin','AdminController@index')->name('login');
 Route::get('/dashboard','AdminController@show_dashboard');
 Route::post('/admin-dashboard','AdminController@dashboard');
-Route::get('/logout','AdminController@log_out');
+Route::get('/logout-admin','AdminController@log_out');
 Route::get('/register','AdminController@register_ne');
 Route::post('/dang_ki_adm','AdminController@dangki')->name('dangki_adm');
 //Category Product
@@ -44,7 +44,11 @@ Route::get('/delete-khachhang/{ma_khach_hang}','Khachhang@delete_khachhang');
 // đơn đặt hàng
 Route::get('/all-dondathang','Dondathang@all_dondathang');
 Route::post('/save-dondathang','Dondathang@save_dondathang');
-Route::post('/update-dondathang','Dondathang@update_dondathang');
+Route::post('/update-dondathang/{ma_don_dat_hang}','Dondathang@update_dondathang');
+Route::get('/don-hang/{ma_qua}','Dondathang@don_hang');
+Route::get('/delete-dondathang/{ma_don_dat_hang}','Dondathang@delete_dondathang');
+
+
 // tin tức
 Route::get('/them-tintuc','Tintuc@them_tintuc');
 Route::get('/all-tintuc','Tintuc@all_tintuc');
@@ -57,6 +61,13 @@ Route::get('/all-lienhe','Lienhe@all_lienhe');
 Route::post('/save-lienhe','Lienhe@save_lienhe');
 Route::post('/update-lienhe','Lienhe@update_lienhe');
 Route::get('/delete-lienhe/{ma_lien_he}','Lienhe@delete_lienhe');
+// bình luận
+Route::get('/all-binhluan','Binhluan@all_binhluan');
+Route::post('/save-binhluan','Binhluan@save_binhluan');
+Route::post('/update-binhluan','Binhluan@update_binhluan');
+Route::get('/delete-binhluan/{ma_binhluan}','Binhluan@delete_binhluan');
+
+
 
 // Admin
 Route::get('/all-admin','Admin@all_admin');

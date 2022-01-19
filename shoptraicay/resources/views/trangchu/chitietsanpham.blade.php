@@ -67,7 +67,7 @@
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="review" >
-								{{$sanpham->mo_ta_qua}}
+								{!!$sanpham->mo_ta_qua!!}
 							</div>
 							<div class="tab-pane fade " id="reviews" >
 								<div class="col-sm-12">

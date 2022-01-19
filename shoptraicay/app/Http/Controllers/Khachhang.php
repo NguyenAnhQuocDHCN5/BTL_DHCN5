@@ -6,12 +6,24 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
 class Khachhang extends Controller
 {
+    public function AuthLogin(){
+        $ma_adm = Session::get('ma_adm');
+        if($ma_adm){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        }
+    }
     
     
     public function all_khachhang(){
-    $all_khachhang = DB::table('khachhang')->get();
+        $this->AuthLogin();
+    $all_khachhang = DB::table('khachhang')
+    ->orderby('khachhang.ma_khach_hang','desc')->paginate(3);
+
     $manager_khachhang  = view('admin.all_khachhang')->with('all_khachhang',$all_khachhang);
     return view('admin.admin_layout')->with('admin.all_khachhang', $manager_khachhang);
     
@@ -19,7 +31,7 @@ class Khachhang extends Controller
         
     }
     public function save_khachhang(Request $request){
-       
+        $this->AuthLogin();
     	$data = array();
        	$data['kh_email'] = $request->kh_email;
         $data['kh_matkhau'] = $request->kh_matkhau;
@@ -33,6 +45,7 @@ class Khachhang extends Controller
         return view('admin.them_sanpham');
     }
     public function edit_khachhang($ma_khach_hang){
+        $this->AuthLogin();
         
         $edit_khachhang = DB::table('khachhang')->where('ma_khach_hang',$ma_khach_hang)->get();
 
@@ -41,6 +54,7 @@ class Khachhang extends Controller
         return view('admin.admin_layout')->with('admin.edit_khachhang', $manager_khachhang);
     }
     public function update_khachhang(Request $request,$ma_khach_hang){
+        $this->AuthLogin();
         
         $data = array();
         $data['kh_email'] = $request->kh_email;

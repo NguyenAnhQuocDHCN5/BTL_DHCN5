@@ -12,7 +12,8 @@ class Tintuc extends Controller
         return view('admin.them_tintuc');
     }
     public function all_tintuc(){
-    $all_tintuc = DB::table('tin_tuc')->get();
+    $all_tintuc = DB::table('tin_tuc')
+    ->orderby('tin_tuc.ma_tin_tuc','desc')->paginate(5);
     $manager_tintuc  = view('admin.all_tintuc')->with('all_tintuc',$all_tintuc);
     return view('admin.admin_layout')->with('admin.all_tintuc', $manager_tintuc);
     
@@ -20,10 +21,11 @@ class Tintuc extends Controller
         
     }
     public function save_tintuc(Request $request){
-       
+        $ad = DB::table('adm')->where('ma_adm',Session::get('ma_adm'))->get();
     	$data = array();
        	
         $data['tieu_de'] = $request->tieu_de;
+        $data['nguoi_dang'] = $ad[0]->ten_adm;
         $data['hinh_anh_tin_tuc'] = $request->hinh_anh_tin_tuc;
         $data['noi_dung_tin_tuc'] = $request->noi_dung_tin_tuc;
         $data['ngay_dang_tin_tuc'] = $request->ngay_dang_tin_tuc;

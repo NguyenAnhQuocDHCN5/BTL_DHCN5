@@ -11,13 +11,29 @@ session_start();
 
 class AdminController extends Controller
 {
+    public function AuthLogin(){
+        $ma_adm = Session::get('ma_adm');
+        if($ma_adm){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        }
+        
+    }
+
     public function index(){
+        
+
         return view('admin.admin_login');
     }
     public function show_dashboard(){
+       
+        $this->AuthLogin();
         return view('admin.dashboard');
+        
     }
     public function dashboard(Request $request){
+        
         $ten_dn = $request->ten_dn;
     	$mat_khau = $request->mat_khau;
 
@@ -32,8 +48,10 @@ class AdminController extends Controller
         }
     }
     public function log_out(){
-        Session::put('ten_adm',null);
-        Session::put('ma_adm',null);
+       
+        Session::forget(['ten_adm', 'ma_adm']);
+       
+      
         return Redirect::to('/admin');
     }
     public function register_ne(){
