@@ -8,7 +8,6 @@
                         </header>
               
                         <div class="panel-body">
-
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/save-tintuc')}}" method="post">
                                     {{ csrf_field() }}
