@@ -35,6 +35,9 @@ Route::post('/save-sanpham','Sanpham@save_sanpham');
 Route::post('/update-sanpham/{ma_qua}','Sanpham@update_sanpham');
 Route::get('/edit-sanpham/{ma_qua}','Sanpham@edit_sanpham');
 Route::get('/delete-sanpham/{ma_qua}','Sanpham@delete_sanpham');
+// tìm kiếm sản phẩm
+Route::post('/tim-kiem-sanpham','Sanpham@timkiem');
+
 // khách hàng
 Route::get('/all-khachhang','Khachhang@all_khachhang');
 Route::post('/save-khachhang','Khachhang@save_khachhang');
@@ -47,7 +50,6 @@ Route::post('/save-dondathang','Dondathang@save_dondathang');
 Route::post('/update-dondathang/{ma_don_dat_hang}','Dondathang@update_dondathang');
 Route::get('/don-hang/{ma_qua}','Dondathang@don_hang');
 Route::get('/delete-dondathang/{ma_don_dat_hang}','Dondathang@delete_dondathang');
-
 
 // tin tức
 Route::get('/them-tintuc','Tintuc@them_tintuc');

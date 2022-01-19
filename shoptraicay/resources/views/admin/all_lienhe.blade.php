@@ -41,7 +41,7 @@
             <th>Tên người liên hệ </th>
             <th>Số điện thoại</th>
             <th>Email</th>
-            <th>Địa chỉ </th>
+            <th>Tiêu đề</th>
             <th>Nội dung</th>
             <th>Ngày liên hệ</th>
             <th>Mã khách hàng </th>
@@ -58,7 +58,7 @@
             <td>{{ $cate_pro->ten_nguoi_lien_he }}</td>
             <td>{{ $cate_pro->sdt_nguoi_lien_he }}</td>
             <td>{{ $cate_pro->email_nguoi_lien_he }}</td>
-            <td>{{ $cate_pro->dia_chi_nguoi_lien_he }}</td>
+            <td>{{ $cate_pro->tieude_lien_he}}</td>
             <td>{{ $cate_pro->noi_dung }}</td>
             <td>{{ $cate_pro->ngay_lien_he }}</td>
             <td>{{ $cate_pro->ma_khach_hang }}</td>

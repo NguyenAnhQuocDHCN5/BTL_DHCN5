@@ -16,8 +16,8 @@
       <div class="col-sm-4">
       </div>
       <div class="col-sm-3">
-      <form action="{{URL::to('/tim-kiem-sanpham')}}"method="post">
-      {{ csrf_field() }}	
+          <form action="{{URL::to('/tim-kiem-sanpham')}}"method="post">
+          {{ csrf_field() }}	
         <div class="input-group">
           <input name="timkiem" type="text" class="input-sm form-control" placeholder="Search">
           <span class="input-group-btn">
@@ -25,7 +25,6 @@
           </span>
         </div>
         </form>
-
       </div>
     </div>
     <div class="table-responsive">
@@ -37,7 +36,7 @@
                 <input type="checkbox"><i></i>
               </label>
             </th>
-            <th>Loại sản phẩm</th>
+            <th>Tên sản phẩm</th>
             <th>Tên quả</th>
             <th>Giá quả</th>
             <th>Hình ảnh</th>
@@ -50,7 +49,7 @@
           </tr>
         </thead>
         <tbody>
-        @foreach($all_sanpham as $key => $cate_pro)
+        @foreach($timkiemsanpham as $key => $cate_pro)
         <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $cate_pro->ten_loai }}</td>
@@ -84,8 +83,8 @@
         
         <div class="col-sm-7 text-right text-center-xs">                
           <ul class="pagination pagination-sm m-t-none m-b-none">
-          @for($i = 1; $i<=$all_sanpham->lastPage(); $i++)
-					<li><a href="{{URL::to('/all-sanpham').'?page='.$i}}" class="{{$i==$all_sanpham->currentPage()?'active':''}}"> {{$i}}</a> </li>
+          @for($i = 1; $i<=$timkiemsanpham->lastPage(); $i++)
+					<li><a href="{{URL::to('/all-sanpham').'?page='.$i}}" class="{{$i==$timkiemsanpham->currentPage()?'active':''}}"> {{$i}}</a> </li>
 					@endfor
           </ul>
         </div>

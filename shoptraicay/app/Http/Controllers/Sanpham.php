@@ -96,4 +96,21 @@ public function delete_sanpham($ma_qua){
     Session::flash('message','Xóa sản phẩm thành công');
     return Redirect('all-sanpham');
 }
+public function timkiem(Request $request){
+    
+    $tucantim=$request->timkiem;
+   
+    $all_sanpham = DB::table('qua')
+    ->join('loai_qua','loai_qua.ma_loai','=','qua.ma_loai')->where('ten_qua','like','%'.$tucantim.'%')->orWhere('gia_qua','like','%'.$tucantim.'%')->orWhere('ten_loai','like','%'.$tucantim.'%')
+   
+    ->orderby('qua.ma_qua','desc')->paginate(5);
+
+
+    return view('admin.tim_kiem_sanpham')->with('timkiemsanpham',$all_sanpham);
+
+             
+
+
 }
+}
+
