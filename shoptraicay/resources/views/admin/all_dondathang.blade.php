@@ -46,7 +46,7 @@
             <th>Tổng tiền</th>
             <th>Tình trạng </th>
             <th>Ngày đặt</th>
-            <th>Ngày giao</th>
+            <th>Ngày cập nhật</th>
             
        
             <th style="width:30px;"></th>
@@ -64,7 +64,7 @@
             <td>{{ $cate_pro->tong_tien }}</td>
             <td>{{ $cate_pro->tinh_trang_dat_hang }}</td>
             <td>{{ $cate_pro->ngay_dat }}</td>
-            <td>{{ $cate_pro->ngay_giao }}</td>
+            <td>{{ $cate_pro->ngay_cap_nhat }}</td>
            
             <td>
               

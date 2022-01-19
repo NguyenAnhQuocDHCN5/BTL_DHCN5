@@ -29,25 +29,7 @@ class Dondathang extends Controller
         
             
         }
-        public function save_dondathang(Request $request){
-            $this->AuthLogin();
-           
-            $data = array();
-            $data['ten_nguoi_nhan'] = $request->ten_nguoi_nhan;
-            $data['email_nguoi_nhan'] = $request->email_nguoi_nhan;
-            $data['sdt_nguoi_nhan'] = $request->sdt_nguoi_nhan;
-            $data['dia_chi_nguoi_nhan'] = $request->dia_chi_nguoi_nhan;
-            $data['ghi_chu_dat_hang'] = $request->ghi_chu_dat_hang;
-            $data['tong_tien'] = $request->tong_tien;
-            $data['tinh_trang_dat_hang'] = $request->tinh_trang_dat_hang;
-            $data['ngay_dat'] = $request->ngay_dat;
-            $data['ngay_giao'] = $request->ngay_giao;
-           
-    
-            donhang::insert($data);
-            Session::flash('message','Thêm sản phẩm thành công');
-            return view('admin.them_sanpham');
-        }
+        
     
     public function don_hang($ma_don_dat_hang){
         $this->AuthLogin();
@@ -66,6 +48,8 @@ class Dondathang extends Controller
             $data = array();
             $data['ma_don_dat_hang'] = $request->ma_don_dat_hang;
             $data['tinh_trang_dat_hang'] = $request->tinh_trang_dat_hang;
+            $data['ngay_cap_nhat']=date('Y-m-d H:i:s');
+
             
             
             
