@@ -21,26 +21,26 @@
 </head><!--/head-->
 
 <body>
-	<header id="header"><!--header-->
+<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href=""><i class="fa fa-phone"></i> +0965540620</a></li>
-								<li><a href=""><i class="fa fa-envelope"></i> shoptraicay@gmail.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +0965540620</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> shoptraicay@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-facebook"></i></a></li>
-								<li><a href=""><i class="fa fa-twitter"></i></a></li>
-								<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-								<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -51,51 +51,49 @@
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<div class="logo pull-left">
 						&nbsp &nbsp &nbsp<a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/images/logo.jpg')}}" alt="" style="heigh:60px; width:60px;" /></a>
 							<p><strong>SHOP TRÁI CÂY</strong></p>
 						</div>
-						<div class="btn-group pull-right">
-						</div>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-sm-9">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> 
-								@php
-                                    $kh_ten = Session::get('kh_ten');
-                                     if($kh_ten)
-                                    {
-                                        echo $kh_ten;    
-                                    }
-                                     @endphp
-							</a></li>
-								<li><a href="{{URL::to('/giohang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+							<ul class="nav nav-pills nav-stacked" >
+								<li>
+									<a href="{{URL::to('/trangcanhan')}}"><i class="fa fa-user"></i>
+									@php
+        							$kh_ten = Session::get('kh_ten');
+               						 if($kh_ten)
+               					 	{
+                			    		echo $kh_ten;    
+                					}
+               						 @endphp
+									</a>
+								</li>
+								<li ><a href="{{URL::to('/giohang')}}"><i class="fa fa-shopping-cart"></i> <span class="badge pull-right">{{$soluong}}</span>Giỏ hàng</a></li>
 								@php
                                    $kh_ten = Session::get('kh_ten');
                                    if($kh_ten!=NULL){ 
                                  @endphp
-                                 <li><a href="{{URL::to('/logout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+								 <li><a href="{{URL::to('/logout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
                                 @php
-                                  }else{
+                          		  }else{
                                 @endphp
-                                <li><a href="{{URL::to('/login')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								<li><a href="{{URL::to('/login')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                                  @php
                              }
                               @endphp
-                            </ul>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-9">
+					<div class="col-sm-7">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -106,33 +104,40 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="{{URL::to('/trang-chu')}}">Trang chủ</a></li>
+								<li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
 								<li class="dropdown"><a href="#">Cửa hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="{{URL::to('/tatcasanpham')}}">Tất cả sản phẩm</a></li>
+										@foreach ($loaiqua as $loai)	
+										<li><a href="{{URL::to('/sanphamtheoloai/'.$loai->ma_loai)}}">{{$loai->ten_loai}}</a></li>	
+										@endforeach							
                                     </ul>
-                                </li> 
-								<li><a href="{{URL::to('/tintuc')}}">Tin tức</a></li>
+                                </li>                                   
+                                <li><a href="{{URL::to('/tintuc')}}">Tin tức</a></li>                           
 								<li><a href="{{URL::to('/lienhe')}}">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-5">
+					<form action="{{URL::to('/timkiem')}}" method="POST">
+                            {{csrf_field()}}
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<input type="text" name="timkiem" placeholder="Search"/>
+							<button type="submit" style="margin-top:0;color:#666;font-size: 17px;" name="search_items"  class="btn btn-primary btn-sm"><i class="fa fa-search"></i></button>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-	<section ><!--form-->
+	<section  ><!--form-->
 	@yield('content1')	
 	</section><!--/form-->
 	
 	
-	<footer id="footer"><!--Footer-->
+	<footer id="footer" style="margin-top: 264px;"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
 			</div>

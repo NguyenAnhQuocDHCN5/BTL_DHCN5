@@ -8,19 +8,19 @@
 								</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
+								    <!-- <div class="carousel-inner">
 										<div class="item active">
 										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
 										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px;  alt=""></a>
 										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
-										</div>
+										</div> -->
 										<!-- <div class="item">
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
 										</div>
 										<div class="item">
 										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
 										</div> -->
-									</div>
+									<!-- </div> -->
 								  <!-- Controls -->
 								  <!-- <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
@@ -71,6 +71,10 @@
 							</div>
 							<div class="tab-pane fade " id="reviews" >
 								<div class="col-sm-12">
+									<div>
+									<p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+									</div>
+									<div>
 									<h2>Thêm bình luận</h2>
 									<form action="{{URL::to('/binhluan')}}" method="POST">
 									{{ csrf_field() }}	
@@ -84,11 +88,38 @@
 											Gửi
 										</button>
 									</form>
+									</div>
 								</div>
 							</div>
 							
 						</div>
 					</div><!--/category-tab-->
-					
+						
+					<div class="recommended_items"><!--recommended_items-->
+                    <h2 class="title text-center">Sản phẩm liên quan</h2>
+                    
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">   
+                            @foreach ($sanphamlienquan as $sanpham)
+                            <a href="#">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                            <div class="productinfo text-center">
+                                            <a href="{{URL::to('/chitietsanpham/'.$sanpham->ma_qua)}}"> <img src="{{URL::to('public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:250px;height:230px; alt="" /></a> 
+                                                <h2>{{number_format($sanpham->gia_qua)}} VND</h2>
+                                                <p>{{$sanpham->ten_qua}}</p>
+                                                <input name="sanpham_id" type="hidden" value="{{$sanpham->ma_qua}}"/>
+                                                <a href="{{URL::to('/chitietgiohang1/'.$sanpham->ma_qua)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng </a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            @endforeach 
+                            </div>
+						</div>
+					</div>
 @endforeach
 @endsection

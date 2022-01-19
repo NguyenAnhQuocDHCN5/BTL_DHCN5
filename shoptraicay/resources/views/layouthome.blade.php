@@ -46,15 +46,15 @@
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<div class="logo pull-left">
 						&nbsp &nbsp &nbsp<a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/images/logo.jpg')}}" alt="" style="heigh:60px; width:60px;" /></a>
 							<p><strong>SHOP TRÁI CÂY</strong></p>
 						</div>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-sm-9">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
+							<ul class="nav nav-pills nav-stacked" >
 								<li>
 									<a href="{{URL::to('/trangcanhan')}}"><i class="fa fa-user"></i>
 									@php
@@ -66,7 +66,7 @@
                						 @endphp
 									</a>
 								</li>
-								<li><a href="{{URL::to('/giohang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+								<li ><a href="{{URL::to('/giohang')}}"><i class="fa fa-shopping-cart"></i> <span class="badge pull-right">{{$soluong}}</span>Giỏ hàng</a></li>
 								@php
                                    $kh_ten = Session::get('kh_ten');
                                    if($kh_ten!=NULL){ 
@@ -88,7 +88,7 @@
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-9">
+					<div class="col-sm-7">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
@@ -113,10 +113,14 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-5">
+					<form action="{{URL::to('/timkiem')}}" method="POST">
+                            {{csrf_field()}}
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<input type="text" name="timkiem" placeholder="Search"/>
+							<button type="submit" style="margin-top:0;color:#666;font-size: 17px;" name="search_items"  class="btn btn-primary btn-sm"><i class="fa fa-search"></i></button>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -126,7 +130,7 @@
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
+				<div >
 					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
@@ -165,18 +169,17 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Danh mục sản phẩm</h2>
-                    <div class="panel-group category-products" id="accordian" style="background-color:#e4e2e2;"><!--category-productsr-->  
-							@foreach ($loaiqua as $loai)
-                            <div class="panel-heading" >
-							 <h3 class="panel-title"><a href="{{URL::to('/loaisanpham/'.$loai->ma_loai)}}">{{$loai->ten_loai}}</a></h3>
-							 <br>
-                            </div>
-							@endforeach 
-                    </div><!--/category-products-->
-                </div>
+						<div class="list-group">
+						@foreach ($loaiqua as $loai)
+    					<a href="{{URL::to('/loaisanpham/'.$loai->ma_loai)}}" class="list-group-item ">
+       				 	<h4 class="list-group-item-heading">{{$loai->ten_loai}}</h4>
+    				</a>
+					@endforeach 
+					</div>
+	                </div>
             </div>
             
-            <div class="col-sm-9 padding-right">
+            <div class="col-sm-9 padding-right" style="margin-bottom:1em;">
 				@yield('content')
             </div>
         </div>
@@ -234,5 +237,6 @@
 	<script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
+	
 </body>
 </html>

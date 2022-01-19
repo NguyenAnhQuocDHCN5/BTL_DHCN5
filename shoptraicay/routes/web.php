@@ -94,4 +94,5 @@ Route::post('/binhluan','HomeController@binhluan');
 Route::post('/guilienhe','HomeController@guilienhe');
 Route::get('/loaisanpham/{ma_loai}','HomeController@loaisanpham');
 Route::get('/sanphamtheoloai/{ma_loai}','HomeController@sanphamtheoloai');
+Route::post('/timkiem','HomeController@timkiem');
 

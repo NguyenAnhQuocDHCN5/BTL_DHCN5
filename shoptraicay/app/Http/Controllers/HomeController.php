@@ -23,12 +23,15 @@ class HomeController extends Controller
     public function index()
     {
         $loaiqua =loaiqua::all();  
-        $qua =qua::paginate(6); 
-        return view('trangchu.home')->with('loaiqua',$loaiqua)->with('qua',$qua);
+        $qua =qua::paginate(6);
+        $soluong = Cart::content()->count();
+        return view('trangchu.home')->with('loaiqua',$loaiqua)->with('qua',$qua)->with('soluong',$soluong);
     }
     public function dangnhaptrangchu()
     {
-        return view('trangchu.login_register');
+        $loaiqua =loaiqua::all(); 
+        $soluong = Cart::content()->count();
+        return view('trangchu.login_register')->with('soluong',$soluong)->with('loaiqua',$loaiqua);
     }
     public function dangxuattrangchu(){
         Session::flush();
@@ -38,7 +41,9 @@ class HomeController extends Controller
         return view('trangchu.trangcanhan');
     }
     public function lienhe(){
-        return view('trangchu.lienhe');
+        $loaiqua =loaiqua::all();  
+        $soluong = Cart::content()->count();
+        return view('trangchu.lienhe')->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     }
     public function guilienhe(Request $request){
         $validatedData = $request->validate([
@@ -61,7 +66,12 @@ class HomeController extends Controller
     public function chitietsanpham($ma_qua){
         $loaiqua =loaiqua::all();  
         $chitietqua = qua::where('ma_qua',$ma_qua)->get();
-        return view('trangchu.chitietsanpham')->with('loaiqua',$loaiqua)->with('sanphamchitiet',$chitietqua);
+        foreach($chitietqua as $key =>$value){
+            $maqua=$value->ma_qua;
+        }
+        $sanphamlienquan = qua::whereNotIn('ma_qua',[$maqua])->paginate(3);
+        $soluong = Cart::content()->count();
+        return view('trangchu.chitietsanpham')->with('loaiqua',$loaiqua)->with('sanphamchitiet',$chitietqua)->with('sanphamlienquan',$sanphamlienquan)->with('soluong',$soluong);
     }
     public function dangkikh(Request $request){
         $validatedData = $request->validate([
@@ -105,17 +115,23 @@ class HomeController extends Controller
     public function tintuc()
     {
         $tintuc = tintuc::paginate(4);
-        return view('trangchu.tintuc')->with('tintuc',$tintuc);
+        $soluong = Cart::content()->count();
+        $loaiqua =loaiqua::all();  
+        return view('trangchu.tintuc')->with('tintuc',$tintuc)->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     }
 
     public function chitiettintuc($ma_tin_tuc)
     {
         $chitiettintuc = tintuc::where('ma_tin_tuc',$ma_tin_tuc)->get();
-        return view('trangchu.chitiettintuc')->with('chitiettintuc',$chitiettintuc);
+        $soluong = Cart::content()->count();
+        $loaiqua =loaiqua::all();  
+        return view('trangchu.chitiettintuc')->with('chitiettintuc',$chitiettintuc)->with('soluong',$soluong);
     }  
     public function giohang()
     {
-        return view('trangchu.giohang');
+        $soluong = Cart::content()->count();
+        $loaiqua =loaiqua::all();  
+        return view('trangchu.giohang')->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     }       
     public function chitietgiohang(Request $request)
     {
@@ -129,7 +145,8 @@ class HomeController extends Controller
         $data['weight'] = $soluong;
         $data['options']['image'] = $listgiohang->hinh_anh_qua;
         Cart::add($data);
-        return Redirect::to('/showgiohang');
+        $soluong = Cart::content()->count();
+        return Redirect::to('/showgiohang')->with('soluong',$soluong);
     }         
     public function chitietgiohang1($ma_qua)
     {
@@ -145,11 +162,14 @@ class HomeController extends Controller
     }   
     public function showgiohang()
     {
-        return view('trangchu.giohang');
+        $loaiqua =loaiqua::all();  
+        $soluong = Cart::content()->count();
+        return view('trangchu.giohang')->with('soluong',$soluong)->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     }
     public function dangkikh1()
-    {
-        return view('trangchu.dangkikh');
+    {   $loaiqua =loaiqua::all(); 
+        $soluong = Cart::content()->count();
+        return view('trangchu.dangkikh')->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     }
     public function xoasanpham($rowId)
     {
@@ -164,27 +184,42 @@ class HomeController extends Controller
     }
     public function checkout()  
     {
-        return view('trangchu.thanhtoan');
+        $soluong = Cart::content()->count();
+        $loaiqua =loaiqua::all();  
+        return view('trangchu.thanhtoan')->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     } 
     public function xacnhanthanhtoan(Request $request)
     {
+        
         $validatedData = $request->validate([
             'ten_nguoinhan' => ['required',],
             'email_nguoinhan' => ['required'],
             'sdt_nguoinhan' => ['required','numeric'], 
             'diachi_nguoinhan' => ['required'],
             'ghichu_nguoinhan' => ['max:255'],
+            'payment_option' =>['required'],
         ]);
         $data =$request->all();
+
+        if($data['payment_option']=='1'){
+            $data['payment_option']="Thanh toán khi giao hàng";
+        }elseif($data['payment_option']=='2'){
+            $data['payment_option']="Chuyển khoản qua ngân hàng";
+        }elseif($data['payment_option']=='3'){
+            $data['payment_option']="Chuyển khoản qua momo";
+        };
+        $date = date('Y-m-d H:i:s');
         $id_donhang = donhang::insertGetId([
             'ten_nguoi_nhan'=>$data['ten_nguoinhan'],
             'email_nguoi_nhan'=>$data['email_nguoinhan'],
             'sdt_nguoi_nhan'=>$data['sdt_nguoinhan'],
             'dia_chi_nguoi_nhan'=>$data['diachi_nguoinhan'],
             'ghi_chu_dat_hang'=>$data['ghichu_nguoinhan'],
+            'hinhthuc_thanhtoan'=>$data['send_order_place'],
             'tong_tien'=>Cart::total(),
-            'tinh_trang_dat_hang'=>'Đang xử lý'
-        ]);
+            'tinh_trang_dat_hang'=>'Đang xử lý',
+            'ngay_dat'=>date('Y-m-d H:i:s'),
+        ]);     
 
         $content = Cart::content();
         foreach($content as $sanpham){
@@ -203,7 +238,9 @@ class HomeController extends Controller
     public function tatcasanpham()  
     {
         $qua =qua::all(); 
-        return view('trangchu.tatca_sanpham')->with('qua',$qua);
+        $loaiqua =loaiqua::all(); 
+        $soluong = Cart::content()->count();
+        return view('trangchu.tatca_sanpham')->with('loaiqua',$loaiqua)->with('qua',$qua)->with('soluong',$soluong);
     } 
     public function binhluan(Request $request)  
     {
@@ -228,13 +265,23 @@ class HomeController extends Controller
         $listsanpham =DB::table('qua')->join('loai_qua','qua.ma_loai','=','loai_qua.ma_loai')->where('loai_qua.ma_loai',$ma_loai)->limit(6)->get();
         $tenloai = loaiqua::where('ma_loai',$ma_loai)->get();
         $ma_loai_qua=$ma_loai;
-        return view('trangchu.danhmucsanpham')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai)->with('ma_loai_qua',$ma_loai_qua);
+        $soluong = Cart::content()->count();
+        return view('trangchu.danhmucsanpham')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai)->with('ma_loai_qua',$ma_loai_qua)->with('soluong',$soluong);
     } 
     public function sanphamtheoloai($ma_loai)
     {
         $loaiqua =loaiqua::all();  
         $listsanpham =DB::table('qua')->join('loai_qua','qua.ma_loai','=','loai_qua.ma_loai')->where('loai_qua.ma_loai',$ma_loai)->get();
         $tenloai = loaiqua::where('ma_loai',$ma_loai)->get();
-        return view('trangchu.sanphamtheoloai')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai);
+        $soluong = Cart::content()->count();
+        return view('trangchu.sanphamtheoloai')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai)->with('soluong',$soluong);
+    } 
+    public function timkiem(Request $request)
+    {
+        $soluong = Cart::content()->count();
+        $tukhoa = $request->timkiem;
+        $loaiqua =loaiqua::all();  
+        $sanphamtimkiem =qua::where('ten_qua','like','%'.$tukhoa.'%')->get(); 
+        return view('trangchu.timkiem')->with('loaiqua',$loaiqua)->with('sanphamtimkiem',$sanphamtimkiem)->with('soluong',$soluong);
     } 
 }

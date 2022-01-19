@@ -26,7 +26,7 @@
 							<tr>
 								<td class="image" data-title="No"><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->options->image)}}" alt="#"></td>
 								<td class="product-des" data-title="Description">
-									<p class="product-name"><a href="#">{{$sanpham->name}}</a></p>
+									<p class="product-name"><a href="{{URL::to('/chitietsanpham/'.$sanpham->id)}}">{{$sanpham->name}}</a></p>
 									<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
 								</td>
 								<td class="price" data-title="Price"><span>{{number_format($sanpham->price).' '.'VND'}} </span></td>

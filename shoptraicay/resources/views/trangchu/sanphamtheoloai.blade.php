@@ -1,7 +1,10 @@
 @extends('layoutlogin')
 @section('content1')
-<div class="container">
+<div class="container" >
 <div class="features_items"><!--features_items-->
+@foreach ($tenloai as $ten)
+                    <h2 class="title text-center">{{$ten->ten_loai}}</h2>
+                @endforeach
 					@foreach ($listsanpham as $sanpham)
                     <a href="#">
                     <div class="col-sm-3">
