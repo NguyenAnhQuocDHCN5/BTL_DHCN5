@@ -8,33 +8,30 @@
 					<!-- Shopping Summery -->
 				@php
 				$content = Cart::content();
-				@endphp
+					@endphp
 					<table class="table shopping-summery">
 						<thead>
 							<tr class="main-hading">
-								<th>PRODUCT</th>
-								<th>NAME</th>
-								<th class="text-center">UNIT PRICE</th>
-								<th class="text-center">QUANTITY</th>
-								<th class="text-center">TOTAL</th> 
+								<th>Hình ảnh</th>
+								<th>Tên sản phẩm</th>
+								<th class="text-center">Giá</th>
+								<th class="text-center">Số lượng</th>
+								<th class="text-center">Tổng</th> 
 								<th class="text-center"><i class="fa fa-trash-o"></i></th>
 							</tr>
 						</thead>
 						<tbody>
 						@foreach($content as $sanpham)
-					
-							<tr>
+							<tr style="text-align: center;">
 								<td class="image" data-title="No"><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->options->image)}}" alt="#"></td>
 								<td class="product-des" data-title="Description">
 									<p class="product-name"><a href="{{URL::to('/chitietsanpham/'.$sanpham->id)}}">{{$sanpham->name}}</a></p>
-									<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
 								</td>
 								<td class="price" data-title="Price"><span>{{number_format($sanpham->price).' '.'VND'}} </span></td>
 								<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href="{{URL::to('/congsl')}}"> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value="{{$sanpham->qty}}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<a class="cart_quantity_down" href=""><i class="fa fa-refresh" aria-hidden="true"></i> </a>
 								</div>
 							</td>
 								<td class="total-amount" data-title="Total">

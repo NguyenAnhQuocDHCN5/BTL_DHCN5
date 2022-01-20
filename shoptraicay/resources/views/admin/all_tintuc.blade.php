@@ -53,7 +53,7 @@
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{ $cate_pro->tieu_de }}</td>
             <td><img src="{{URL::to('public/uploads/tintuc/'.$cate_pro->hinh_anh_tin_tuc)}}" height="200" width="200"></td>
-            <td>{!!$cate_pro->noi_dung_tin_tuc!!}</td>
+            <td>{!!Illuminate\Support\Str::of($cate_pro->noi_dung_tin_tuc)->words(10)!!}</td>
             <td>{{ $cate_pro->ngay_dang_tin_tuc }}</td>
             
 

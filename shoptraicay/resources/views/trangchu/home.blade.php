@@ -1,7 +1,7 @@
 @extends('layouthome')
 @section('content')
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Sản phẩm</h2>
+                    <h2 class="title text-center">Sản phẩm mới</h2>
 					@foreach ($qua as $qua)
                     <a href="#">
                     <div class="col-sm-4">
@@ -22,6 +22,6 @@
                 </div><!--features_items-->
                 <div style=" text-align: right; margin-bottom:1em;">
                     <a class="btn btn-primary" style="margin-top: 0px; " href="{{URL::to('/tatcasanpham')}}">Xem thêm</a>
-                    </div>
+                </div>
                
 @endsection

@@ -31,8 +31,12 @@
 										<i class="fa fa-star-half-o"></i>
 								</span>
 							</div> -->
-							<a href=""> <img src="{{('public/uploads/tintuc/'.$tintuc1->hinh_anh_tin_tuc)}}" alt=""></a>
-							<h3>{{$tintuc1->tieu_de}}</h3>
+							<div>
+								<a href="{{URL::to('/chitiettintuc/'.$tintuc1->ma_tin_tuc)}}"> <img src="{{('public/uploads/tintuc/'.$tintuc1->hinh_anh_tin_tuc)}}" alt=""></a>
+							</div>
+							<div>
+							<h3 style="margin-top: 15px;">{{$tintuc1->tieu_de}}</h3>
+							</div>
 							<a  class="btn btn-primary" href="{{URL::to('/chitiettintuc/'.$tintuc1->ma_tin_tuc)}}">Xem thêm</a>
 					</div>
 				</div>

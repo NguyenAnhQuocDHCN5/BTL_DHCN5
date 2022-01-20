@@ -12,9 +12,6 @@
 									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
 								</ul>
 							</div>
-							<a href="">
-								<img src="{{URL::to('public/uploads/tintuc/'.$chitiettintuc1->hinh_anh_tin_tuc)}}" alt="" >
-							</a>
 							<p>
 							{!!($chitiettintuc1->noi_dung_tin_tuc)!!}
 							</p>

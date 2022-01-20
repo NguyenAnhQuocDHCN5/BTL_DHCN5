@@ -15,6 +15,7 @@ use App\Models\chitietdondathang;
 use App\Models\khachhang;
 use App\Models\binhluan;
 use App\Models\lienhe;
+use Illuminate\Support\Str;
 use Cart;
 session_start();
 
@@ -23,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $loaiqua =loaiqua::all();  
-        $qua =qua::paginate(6);
+        $qua =qua::orderBy('ma_qua','desc')->paginate(6);
         $soluong = Cart::content()->count();
         return view('trangchu.home')->with('loaiqua',$loaiqua)->with('qua',$qua)->with('soluong',$soluong);
     }
@@ -124,8 +125,9 @@ class HomeController extends Controller
     {
         $chitiettintuc = tintuc::where('ma_tin_tuc',$ma_tin_tuc)->get();
         $soluong = Cart::content()->count();
-        $loaiqua =loaiqua::all();  
-        return view('trangchu.chitiettintuc')->with('chitiettintuc',$chitiettintuc)->with('soluong',$soluong);
+     
+        $loaiqua =loaiqua::all(); 
+        return view('trangchu.chitiettintuc')->with('loaiqua',$loaiqua)->with('chitiettintuc',$chitiettintuc)->with('soluong',$soluong);
     }  
     public function giohang()
     {

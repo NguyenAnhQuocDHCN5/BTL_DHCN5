@@ -59,7 +59,7 @@
             <td><img src="{{URL::to('public/uploads/sanpham/'.$cate_pro->hinh_anh_qua)}}" height="100" width="100"></td>
             
             <td>{{ $cate_pro->tinh_trang_qua }}</td>
-            <td>{!!$cate_pro->mo_ta_qua!!}</td>
+            <td>{!!Illuminate\Support\Str::of($cate_pro->mo_ta_qua)->words(20)!!}</td>
 
 
             

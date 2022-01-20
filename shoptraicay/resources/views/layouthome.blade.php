@@ -140,7 +140,7 @@
 						
 						<div class="carousel-inner">
 							<div class="item active">
-							<div class="col-sm-11">
+							<div class="col-sm-11" >
 									<img src="{{URL::to('/public/frontend/images/slide5.jpg')}}" class="girl img-responsive" alt="" />
 									</div>
 							</div>
