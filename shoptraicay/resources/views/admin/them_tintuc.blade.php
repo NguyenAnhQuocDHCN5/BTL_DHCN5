@@ -20,11 +20,11 @@
                                 
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tiêu đề </label>
-                                    <input type="text"  class="form-control"  onkeyup="ChangeToSlug();" name="tieu_de"  id="slug" placeholder="Tiêu đề" required="">
+                                    <input type="text"  class="form-control"  onkeyup="ChangeToSlug();" name="tieu_de"  id="slug" placeholder="Tiêu đề" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Hình ảnh tin tức</label>
-                                    <input type="file" name="hinh_anh_tin_tuc" class="form-control" id="exampleInputEmail1">
+                                    <input type="file" name="hinh_anh_tin_tuc" class="form-control" id="exampleInputEmail1" required>
                                 </div>
                                
                                 <div class="form-group">
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ngày đăng</label>
-                                    <input type="date" data-validation="number" data-validation-error-msg="Làm ơn điền ngày đăng" name="ngay_dang_tin_tuc" class="form-control" id="exampleInputEmail1" placeholder="Điền ngày đăng">
+                                    <input type="date" data-validation="number" data-validation-error-msg="Làm ơn điền ngày đăng" name="ngay_dang_tin_tuc" class="form-control" id="exampleInputEmail1" placeholder="Điền ngày đăng" required>
                                 </div>
                                 
                                       <button type="submit" name="them_tintuc" class="btn btn-info">Thêm tin tức</button>
