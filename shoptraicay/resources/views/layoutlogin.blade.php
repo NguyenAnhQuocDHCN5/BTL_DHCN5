@@ -60,8 +60,13 @@
 					<div class="col-sm-9">
 						<div class="shop-menu pull-right">
 							<ul class="nav nav-pills nav-stacked" >
+							@php
+                                   $kh_ten = Session::get('kh_ten');
+								   $ma_khach_hang = Session::get('ma_khach_hang');
+                                   if($kh_ten!=NULL){ 
+                                 @endphp
 								<li>
-									<a href="{{URL::to('/trangcanhan')}}"><i class="fa fa-user"></i>
+								<a href="{{URL::to('/trangcanhan/'.$ma_khach_hang)}}"><i class="fa fa-user"></i>
 									@php
         							$kh_ten = Session::get('kh_ten');
                						 if($kh_ten)
@@ -71,6 +76,16 @@
                						 @endphp
 									</a>
 								</li>
+								@php
+                          		  }else{
+                                @endphp
+								<li>
+									<a href="#"><i class="fa fa-user"></i>
+									</a>
+								</li>
+								@php
+                             }
+                              @endphp
 								<li ><a href="{{URL::to('/giohang')}}"><i class="fa fa-shopping-cart"></i> <span class="badge pull-right">{{$soluong}}</span>Giỏ hàng</a></li>
 								@php
                                    $kh_ten = Session::get('kh_ten');

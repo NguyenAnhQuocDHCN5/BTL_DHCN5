@@ -17,6 +17,7 @@ class khachhang extends Model
         'kh_sdt',
         'kh_diachi',
     ];
+    const UPDATED_AT = NULL;
     
     
 }

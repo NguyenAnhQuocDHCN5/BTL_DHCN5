@@ -26,23 +26,22 @@
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Thông tin khách hàng</h2>
 					<div class="panel-body">
+                    @foreach($thongtinkh as $khachhang)
                     <form role="form" class="form-horizontal bucket-form" action="{{URL::to('/capnhapthongtinkhachhang')}}" method="post">
                     {{ csrf_field() }}
-                                    @php
-                             if(Session::has('message'))
+                              
+                        <div class="form-group">
+                        @php
+                             if(Session::has('message1'))
                              {
-                           echo Session::get('message');
+                           echo Session::get('message1');
                                }
                           @endphp
-                        <div class="form-group">
                         <label class="col-sm-2 control-label col-lg-2">Tên</label>
                         <div class="col-lg-6">
                             <div class="input-group m-bot15">
                                 <span class="input-group-addon btn-white"><i class="fa fa-user"></i></span>
-                                @php
-        							$kh_ten = Session::get('kh_ten');
-               					@endphp
-                                <input type="text"  class="form-control" value="{{$kh_ten}}">
+                                <input type="text" name="tenkh"  class="form-control" value="{{$khachhang->kh_ten}}">
                             </div>        
                         </div>
                     </div>
@@ -52,10 +51,7 @@
                         <div class="col-lg-6">
 							<div class="input-group m-bot15">
 								<span class="input-group-addon btn-white"><i class="fa fa-envelope"></i></span>
-                                @php
-        							$kh_email = Session::get('kh_email');
-               					@endphp
-								<input type="text" class="form-control" value="{{$kh_email}}">
+								<input type="email" name="emailkh" class="form-control" value="{{$khachhang->kh_email}}">
 							</div>   
                         </div>
                     </div>
@@ -64,10 +60,7 @@
                         <div class="col-lg-6">
 							<div class="input-group m-bot15">
 								<span class="input-group-addon btn-white"><i class="fa fa-phone"></i></span>
-                                @php
-        							$kh_sdt = Session::get('kh_sdt');
-               					@endphp
-								<input type="text" class="form-control" value="{{$kh_sdt}}">
+								<input type="number" name="sdtkh" class="form-control" value="{{$khachhang->kh_sdt}}">
 							</div>   
                         </div>
                     </div>
@@ -76,20 +69,15 @@
                         <div class="col-lg-6">
 							<div class="input-group m-bot17">
 								<span class="input-group-addon btn-white"><i class="fa fa-home"></i></span>
-                                @php
-        							$kh_diachi = Session::get('kh_diachi');
-               					@endphp
-								<input type="text" class="form-control" value="{{$kh_diachi}}">
-                                
+                                <input type="hidden" name="idkh" class="form-control" value="{{$khachhang->ma_khach_hang}}">
+								<input type="text" name="diachikh" class="form-control" value="{{$khachhang->kh_diachi}}">
 							</div>   
                             <br>
                                 <button type="submit" class="btn btn-default">Xác nhận </button>
                         </div>
                     </div>
-                    
-					
 				    </form>
-				
+				@endforeach
                     </div>	
                 </div><!--features_items-->
             </div>

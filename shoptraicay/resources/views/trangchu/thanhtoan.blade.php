@@ -64,9 +64,9 @@
 								<h2>Hình thức thanh toán</h2>
 								<div class="content">
 									<div class="checkbox" >
-										<label class="checkbox-inline" ><input name="payment_option" id="1" vaulue="1" type="checkbox"> Thanh toán khi giao hàng</label>
-										<label class="checkbox-inline" style="margin-left: 0px" ><input name="payment_option" id="2" value="2" type="checkbox"> Chuyển khoản qua ngân hàng</label>
-										<label class="checkbox-inline" style="margin-left: 0px" ><input name="payment_option" id="3" vaulue="3" type="checkbox"> Chuyển khoản qua momo</label>
+										<label class="checkbox-inline" ><input name="payment_option"  value="1" type="checkbox"> Thanh toán khi giao hàng</label>
+										<label class="checkbox-inline" style="margin-left: 0px" ><input name="payment_option"  value="2" type="checkbox"> Chuyển khoản qua ngân hàng</label>
+										<label class="checkbox-inline" style="margin-left: 0px" ><input name="payment_option"  value="3" type="checkbox"> Chuyển khoản qua momo</label>
 									</div>
 								</div>
 							</div>
