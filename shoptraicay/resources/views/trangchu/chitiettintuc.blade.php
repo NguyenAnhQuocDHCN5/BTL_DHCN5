@@ -8,8 +8,9 @@
 							<h3>{{$chitiettintuc1->tieu_de}}</h3>
 							<div class="post-meta">
 								<ul>
-									<li><i class="fa fa-user"></i> QNA</li>
-									<li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+									<li><i class="fa fa-user"></i> {{$chitiettintuc1->nguoi_dang}}</li>
+									<li><i class="fa fa-calendar"></i> {{date('d-m-Y', strtotime($chitiettintuc1->ngay_dang_tin_tuc))}}</li>
+									
 								</ul>
 							</div>
 							<p>

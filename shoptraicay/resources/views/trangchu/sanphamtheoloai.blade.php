@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<div class="container" >
+<div class="container"style="margin-bottom:1em;">
 <div class="features_items"><!--features_items-->
 @foreach ($tenloai as $ten)
                     <h2 class="title text-center">{{$ten->ten_loai}}</h2>
@@ -23,5 +23,12 @@
                     </a>
                    	@endforeach
                 </div><!--features_items-->
+                <div class="pagination-area" style="margin-left: 500px;">
+					<ul class="pagination">
+					@for($i = 1; $i<=$listsanpham->lastPage(); $i++)
+					<li><a href="{{URL::to('/sanphamtheoloai/.$tenloai->ma_loai').'?page='.$i}}" class="{{$i==$listsanpham->currentPage()?'active':''}}"> {{$i}}</a> </li>
+					@endfor
+					</ul>   
+	            </div>
 </div>
 @endsection

@@ -1,9 +1,9 @@
 @extends('layoutlogin')
 @section('content1')
-<div class="container">
+<div class="container" style="margin-bottom:1em;">
 <div class="features_items"><!--features_items-->
 <h2 class="title text-center">TẤT CẢ SẢN PHẨM</h2>
-					@foreach ($qua as $qua)
+					@foreach ($sanpham as $qua)
                     <a href="#">
                     <div class="col-sm-3">
                         <div class="product-image-wrapper">
@@ -21,6 +21,12 @@
                     </a>
                    	@endforeach
                 </div><!--features_items-->
-
+                <div class="pagination-area" style="margin-left: 500px; ">
+					<ul class="pagination">
+					@for($i = 1; $i<=$sanpham->lastPage(); $i++)
+					<li><a href="{{URL::to('/tatcasanpham').'?page='.$i}}" class="{{$i==$sanpham->currentPage()?'active':''}}"> {{$i}}</a> </li>
+					@endfor
+					</ul>   
+	            </div>
 </div>
 @endsection

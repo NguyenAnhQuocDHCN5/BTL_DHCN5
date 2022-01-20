@@ -11,6 +11,15 @@ use App\Models\donhang;
 use Illuminate\Support\Facades\Redirect;
 class GiohangController extends Controller
 {
+    public function kiemtra()
+    {
+        $soluong = Cart::content()->count();
+        if($soluong==0)
+        {
+            return Redirect::to('/showgiohang')->send();
+        }
+    }
+
     //Frontend
     public function giohang()
     {
@@ -56,14 +65,16 @@ class GiohangController extends Controller
         Cart::remove($rowId);
          return Redirect::to('/showgiohang');
     }
-    public function congsl($rowId)
+    public function capnhatsoluong(Request $request)
     {
-        $row = Cart::get($rowId);
-        Cart::update($rowId,$row->qty + 1);
+        $rowid = $request->rowId_cart;
+        $qty = $request->quantity;
+        Cart::update($rowid,$qty);
         return Redirect::to('/showgiohang');
     }
     public function checkout()  
     {
+        $this->kiemtra();
         $soluong = Cart::content()->count();
         $loaiqua =loaiqua::all();  
         return view('trangchu.thanhtoan')->with('loaiqua',$loaiqua)->with('soluong',$soluong);
@@ -98,6 +109,7 @@ class GiohangController extends Controller
             'tong_tien'=>Cart::total(),
             'tinh_trang_dat_hang'=>'Đang xử lý',
             'ngay_dat'=>date('Y-m-d H:i:s'),
+            'ma_khach_hang'=>$request->makh,
         ]);     
 
         $content = Cart::content();
@@ -112,6 +124,12 @@ class GiohangController extends Controller
             ]);
         }
         Cart::destroy();
-        return Redirect::to('/trang-chu');
+        return Redirect::to('/camon');
+    } 
+    public function camon()  
+    {
+        $soluong = Cart::content()->count();
+        $loaiqua =loaiqua::all();  
+        return view('trangchu.camon')->with('loaiqua',$loaiqua)->with('soluong',$soluong);
     } 
 }

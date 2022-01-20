@@ -38,7 +38,7 @@
             <td>{{ $cate_pro->binhluan_ten }}</td>
             <td>{{ $cate_pro->binhluan_email }}</td>
             <td>{{ $cate_pro->binhluan_noidung	 }}</td>
-            <td>{{ $cate_pro->ma_qua  }}</td>
+            <td>{{ $cate_pro->ten_qua}}</td>
             <td>{{ $cate_pro->binhluan_ngay }}</td>
          
           

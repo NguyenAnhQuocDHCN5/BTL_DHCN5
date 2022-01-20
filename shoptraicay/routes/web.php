@@ -105,11 +105,10 @@ Route::post('/chitietgiohang','GiohangController@chitietgiohang');
 Route::get('/chitietgiohang1/{ma_qua}','GiohangController@chitietgiohang1');
 Route::get('/showgiohang','GiohangController@showgiohang');
 Route::get('/xoasanpham/{rowId}','GiohangController@xoasanpham');
-Route::get('/capnhapsoluong/{rowId}','GiohangController@capnhatsoluong');
-Route::get('/congsl/{rowId}','GiohangController@congsl');
-Route::get('/trusl/{rowId}','GiohangController@trusl');
+Route::post('/capnhapsoluong','GiohangController@capnhatsoluong');
 Route::get('/thanhtoan','GiohangController@checkout');
 Route::post('/xacnhan','GiohangController@xacnhanthanhtoan')->name('xacnhan1');
+Route::get('/camon','GiohangController@camon');
 
 //Tintuc
 Route::get('/tintuc','TintucController@tintuc');

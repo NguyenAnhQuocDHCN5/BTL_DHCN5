@@ -2,36 +2,12 @@
 @section('content')
 @foreach($sanphamchitiet as $sanpham)
 <div class="product-details"><!--product-details-->
-						<div class="col-sm-5">
+						<div class="col-sm-6">
 								<div class="view-product">
-									<img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:360px;height:295px; alt="" />
+									<img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:432px;height: 436px;" alt="" />
 								</div>
-							<div id="similar-product" class="carousel slide" data-ride="carousel">
-								  <!-- Wrapper for slides -->
-								    <!-- <div class="carousel-inner">
-										<div class="item active">
-										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
-										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px;  alt=""></a>
-										  <a href=""><img src="{{URL::to('/public/uploads/sanpham/'.$sanpham->hinh_anh_qua)}}" style="width:85px;height:84px; alt=""></a>
-										</div> -->
-										<!-- <div class="item">
-										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="{{('public/frontend/images/buoi_mien_trung.jpg')}}" alt=""></a>
-										</div> -->
-									<!-- </div> -->
-								  <!-- Controls -->
-								  <!-- <a class="left item-control" href="#similar-product" data-slide="prev">
-									<i class="fa fa-angle-left"></i>
-								  </a>
-								  <a class="right item-control" href="#similar-product" data-slide="next">
-									<i class="fa fa-angle-right"></i>
-								  </a> -->
-							</div>
-	
 						</div>
-						<div class="col-sm-7">
+						<div class="col-sm-6">
 							<div class="product-information"><!--/product-information-->
 								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
 								<h2>{{$sanpham->ten_qua}}</h2>
@@ -44,7 +20,7 @@
                                 <span>
 									<label>Số lượng:</label>
 									<input name="soluong" type="number" min="1" value="1"/>
-									<input name="sanphamid" type="hidden" value="{{$sanpham->ma_qua}}"/>
+									<input name="sanphamid" type="hidden" value="{{$sanpham->ma_qua}}"/><strong>KG</strong>
                                     <br>
 									<button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
@@ -52,7 +28,7 @@
 									</button>
 								</span>
 								</form>
-								<p><b>Tình trạng:</b> còn hàng</p>
+								<p><b>Tình trạng:</b> {{$sanpham->tinh_trang_qua}}</p>
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>

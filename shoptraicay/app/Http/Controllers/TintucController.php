@@ -15,6 +15,7 @@ class TintucController extends Controller
     public function them_tintuc(){
         return view('admin.them_tintuc');
     }
+
     public function all_tintuc(){
     $all_tintuc = DB::table('tin_tuc')
     ->orderby('tin_tuc.ma_tin_tuc','desc')->paginate(5);
@@ -27,13 +28,11 @@ class TintucController extends Controller
     public function save_tintuc(Request $request){
         $ad = DB::table('adm')->where('ma_adm',Session::get('ma_adm'))->get();
     	$data = array();
-       	
         $data['tieu_de'] = $request->tieu_de;
         $data['nguoi_dang'] = $ad[0]->ten_adm;
         $data['hinh_anh_tin_tuc'] = $request->hinh_anh_tin_tuc;
         $data['noi_dung_tin_tuc'] = $request->noi_dung_tin_tuc;
         $data['ngay_dang_tin_tuc'] = $request->ngay_dang_tin_tuc;
-        
 
         DB::table('tin_tuc')->insert($data);
     	Session::flash('message','Thêm tin tức thành công');
@@ -74,8 +73,9 @@ public function delete_tintuc($ma_tin_tuc){
     {
         $tintuc = tintuc::paginate(4);
         $soluong = Cart::content()->count();
+        $tieudetintuc=tintuc::orderby('ma_tin_tuc','desc')->limit(5)->get();
         $loaiqua =loaiqua::all();  
-        return view('trangchu.tintuc')->with('tintuc',$tintuc)->with('loaiqua',$loaiqua)->with('soluong',$soluong);
+        return view('trangchu.tintuc')->with('tintuc',$tintuc)->with('loaiqua',$loaiqua)->with('soluong',$soluong)->with('tieudetintuc', $tieudetintuc);
     }
 
     public function chitiettintuc($ma_tin_tuc)

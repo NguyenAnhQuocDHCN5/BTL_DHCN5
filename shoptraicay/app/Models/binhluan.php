@@ -16,5 +16,6 @@ class binhluan extends Model
         'binhluan_noidung',
         'ma_qua',
     ];
- 
+    const CREATED_AT = 'binhluan_ngay';
+    const UPDATED_AT = NULL;
 }

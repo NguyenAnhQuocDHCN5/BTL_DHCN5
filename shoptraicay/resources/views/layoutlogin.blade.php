@@ -53,7 +53,7 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="logo pull-left">
-						&nbsp &nbsp &nbsp<a href="{{URL::to('/trang-chu')}}"><img src="{{('public/frontend/images/logo.jpg')}}" alt="" style="heigh:60px; width:60px;" /></a>
+						&nbsp &nbsp &nbsp<a href="{{URL::to('/trang-chu')}}"><img src="{{URL::to('public/frontend/images/logo.jpg')}}" alt="" style="heigh:60px; width:60px;" /></a>
 							<p><strong>SHOP TRÁI CÂY</strong></p>
 						</div>
 					</div>
@@ -147,12 +147,12 @@
 		</div><!--/header-bottom-->
 	</header><!--/header-->
 	
-	<section  ><!--form-->
+	<section > <!--form-->
 	@yield('content1')	
 	</section><!--/form-->
 	
 	
-	<footer id="footer" style="margin-top: 264px;"><!--Footer-->
+	<footer id="footer" style="margin-top:53px"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
 			</div>

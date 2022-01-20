@@ -85,7 +85,6 @@ class KhachhangController extends Controller
     	$mat_khau_kh = $request->mat_khau_kh;
     	$result = DB::table('khachhang')->where('kh_email',$email_kh)->where('kh_matkhau',$mat_khau_kh)->first();
     	if($result){
-            Session::put('ma_khach_hang',$result->ma_khach_hang);
             Session::put('kh_ten',$result->kh_ten);
             Session::put('kh_email',$result->kh_email);
             Session::put('ma_khach_hang',$result->ma_khach_hang);

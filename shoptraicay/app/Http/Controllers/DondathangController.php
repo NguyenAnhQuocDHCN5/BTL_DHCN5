@@ -52,8 +52,6 @@ class DondathangController extends Controller
                 $data['ngay_cap_nhat']=date('Y-m-d H:i:s');
     
                 
-                
-                
                 DB::table('don_dat_hang')->where('ma_don_dat_hang',$ma_don_dat_hang)->update($data);
                 Session::flash('message','Cập nhật danh mục khách hàng thành công'); 
                 return redirect('all-dondathang');

@@ -41,8 +41,6 @@ class SanphamController extends Controller
     $manager_sanpham  = view('admin.all_sanpham')->with('all_sanpham',$all_sanpham);
     return view('admin.admin_layout')->with('admin.all_sanpham', $manager_sanpham);
     
-    
-    
         
     }
     public function save_sanpham(Request $request){
@@ -85,9 +83,6 @@ class SanphamController extends Controller
         $data['mo_ta_qua'] = $request->mo_ta_qua;
         $data['tinh_trang_qua'] = $request->tinh_trang_qua;
        
-
-        
-        
         DB::table('qua')->where('ma_qua',$ma_qua)->update($data);
         Session::flash('message','Cập nhật sản phẩm thành công');
         return Redirect('all-sanpham');
@@ -126,10 +121,10 @@ public function timkiem(Request $request){
     }
     public function tatcasanpham()  
     {
-        $qua =qua::all(); 
+        $qua =qua::paginate(8); 
         $loaiqua =loaiqua::all(); 
         $soluong = Cart::content()->count();
-        return view('trangchu.tatca_sanpham')->with('loaiqua',$loaiqua)->with('qua',$qua)->with('soluong',$soluong);
+        return view('trangchu.tatca_sanpham')->with('loaiqua',$loaiqua)->with('sanpham',$qua)->with('soluong',$soluong);
     }
     public function loaisanpham($ma_loai)
     {
@@ -143,7 +138,7 @@ public function timkiem(Request $request){
     public function sanphamtheoloai($ma_loai)
     {
         $loaiqua =loaiqua::all();  
-        $listsanpham =DB::table('qua')->join('loai_qua','qua.ma_loai','=','loai_qua.ma_loai')->where('loai_qua.ma_loai',$ma_loai)->get();
+        $listsanpham =DB::table('qua')->join('loai_qua','qua.ma_loai','=','loai_qua.ma_loai')->where('loai_qua.ma_loai',$ma_loai)->paginate(8);
         $tenloai = loaiqua::where('ma_loai',$ma_loai)->get();
         $soluong = Cart::content()->count();
         return view('trangchu.sanphamtheoloai')->with('loaiqua',$loaiqua)->with('listsanpham',$listsanpham)->with('tenloai',$tenloai)->with('soluong',$soluong);

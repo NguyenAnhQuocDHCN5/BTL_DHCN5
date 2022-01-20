@@ -1,6 +1,6 @@
 @extends('layoutlogin')
 @section('content1')
-<div class="shopping-cart section"  style="margin-top: 54px;">
+<div class="shopping-cart section">
 		<div class="container">
 			<div class="row">
 				
@@ -9,7 +9,7 @@
 				@php
 				$content = Cart::content();
 					@endphp
-					<table class="table shopping-summery">
+					<table class="table shopping-summery" style="padding-bottom:140px;">
 						<thead>
 							<tr class="main-hading">
 								<th>Hình ảnh</th>
@@ -29,11 +29,21 @@
 								</td>
 								<td class="price" data-title="Price"><span>{{number_format($sanpham->price).' '.'VND'}} </span></td>
 								<td class="cart_quantity">
+								<div class="input-group mb-3">
+								<form action="{{URL::to('/capnhapsoluong')}}" method="POST">
+								{{csrf_field()}}
+								<input class="cart_quantity_input" type="text" name="quantity" value="{{$sanpham->qty}}" autocomplete="off" size="2">
+								<input type="hidden" value="{{$sanpham->rowId}}" name="rowId_cart" >
+								<button class="btn btn-outline-secondary" style="line-height:1.3;" type="submit"><i class="fa fa-refresh" ></i></button>
+								</form>
+								</div>
+								</td>
+								<!-- <td class="cart_quantity">
 								<div class="cart_quantity_button">
 									<input class="cart_quantity_input" type="text" name="quantity" value="{{$sanpham->qty}}" autocomplete="off" size="2">
 									<a class="cart_quantity_down" href=""><i class="fa fa-refresh" aria-hidden="true"></i> </a>
 								</div>
-							</td>
+								</td> -->
 								<td class="total-amount" data-title="Total">
 									<span>
 								@php

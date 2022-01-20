@@ -58,7 +58,9 @@ class LienheController extends Controller
             'tieude_lien_he'=>$data['tieude_lienhe'],
             'sdt_nguoi_lien_he'=>$data['sdt_lienhe'],
             'noi_dung'=>$data['noidung_lienhe'],
+            'ma_khach_hang'=>$request->makh,
         ]);
+        Session::flash('message_lienhe','Gửi thành công chúng tôi sẽ liên hệ tới bạn trong thời gian sớm nhất');
         return Redirect::to('/lienhe');
     }
 }

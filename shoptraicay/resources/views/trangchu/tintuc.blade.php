@@ -1,15 +1,15 @@
 @extends('layoutlogin')
 @section('content1')
 <div class="container" style="margin-bottom:1em;">
-    <div class="row" >
+    <div class="row">
         <div class="col-sm-3">
             <div class="left-sidebar">
                 <h2>Tin tức mới</h2>
                 <div class="panel-group category-products" id="accordian"><!--category-productsr-->  
                 	<div class="panel panel-default">	
-					@foreach ($tintuc as $tintuc1)
+					@foreach ($tieudetintuc as $tintuc2)
                     	<div class="panel-heading" >
-						<h3 class="panel-title"><a href="#">{{$tintuc1->tieu_de}}</a></h3>
+						<h3 class="panel-title"><a href="{{URL::to('/chitiettintuc/'.$tintuc2->ma_tin_tuc)}}">{{$tintuc2->tieu_de}}</a></h3>
 						<br>
                     	</div>
 					@endforeach
@@ -17,30 +17,17 @@
             	</div>		
         	</div>
     	</div>
-        <div class="col-sm-9 padding-right">
+        <div class="col-sm-9" >
 			<h2 class="title text-center">Tin tức</h2>
 			@foreach ($tintuc as $tintuc1)
-				<div class="col-sm-6">
+				<div class="col-sm-5">
 					<div class="single-blog-post" style="margin-bottom:1em;">
-							<!-- <div class="post-meta">
-								<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-								</span>
-							</div> -->
-							<div>
-								<a href="{{URL::to('/chitiettintuc/'.$tintuc1->ma_tin_tuc)}}"> <img src="{{('public/uploads/tintuc/'.$tintuc1->hinh_anh_tin_tuc)}}" alt=""></a>
-							</div>
-							<div>
-							<h3 style="margin-top: 15px;">{{$tintuc1->tieu_de}}</h3>
-							</div>
+							<a href="{{URL::to('/chitiettintuc/'.$tintuc1->ma_tin_tuc)}}"> <img src="{{('public/uploads/tintuc/'.$tintuc1->hinh_anh_tin_tuc)}}" alt=""></a>
+							<h4 style="margin-top: 15px;">{{$tintuc1->tieu_de}}</h4>
 							<a  class="btn btn-primary" href="{{URL::to('/chitiettintuc/'.$tintuc1->ma_tin_tuc)}}">Xem thêm</a>
 					</div>
 				</div>
-			@endforeach
+				@endforeach
         </div>
     </div>
 	<div class="pagination-area" style="margin-left: 700px;">

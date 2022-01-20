@@ -6,7 +6,13 @@
 					<div class="col-lg-8 col-12">
 					@php
 				$content = Cart::content();
+        		$kh_ten = Session::get('kh_ten');
+				$kh_email= Session::get('kh_email');
+				$kh_makh= Session::get('ma_khach_hang');
+				$kh_sdt = Session::get('kh_sdt');
+				$kh_diachi= Session::get('kh_diachi');
 				@endphp
+
 						<div class="checkout-form">
 							<h2>Thông tin thanh toán</h2>
 							<p></p>
@@ -15,35 +21,37 @@
 								<div class="row">
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
-											<label>Họ và tên<span>*</span></label>
-											<input type="text" name="ten_nguoinhan" placeholder="" required="required">
+											<label>Họ và tên<span>
+										
+											</span></label>
+											<input type="text" name="ten_nguoinhan" placeholder="Tên" required="required" value="{{Session::get('kh_ten')}}">
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<div class="form-group">
 											<label>Email <span>*</span></label>
-											<input type="email" name="email_nguoinhan" placeholder="" required="required">
+											<input type="email" name="email_nguoinhan" placeholder="Email" required="required" value="{{$kh_email}}">
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">	
 										<div class="form-group">
 											<label>Số điện thoại<span>*</span></label>
-											<input type="number" name="sdt_nguoinhan" placeholder="" required="required">
+											<input type="number" name="sdt_nguoinhan" placeholder="Số điện thoại" value="{{$kh_sdt}}" required="required">
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
 											<label>Địa chỉ<span>*</span></label>
-											<input type="text" name="diachi_nguoinhan" placeholder="" required="required">
+											<input type="hidden" name="makh" placeholder="" value="{{$kh_makh}}">
+											<input type="text" name="diachi_nguoinhan" placeholder="Địa chỉ giao hàng" value="{{$kh_diachi}}" required="required">
 										</div>
 									</div>
                                     <div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
 											<label>Ghi chú<span>*</span></label>
-                                            <textarea rows="9" style="background:#F6F7FB" type="text" name="ghichu_nguoinhan">  
-                                        	</textarea>  
+											<textarea  style="background:#F6F7FB" name="ghichu_nguoinhan" rows="8" placeholder="Ghi chú"></textarea>
 										</div>
-									</div>
+				           			</div>   
 								</div>
 						</div>
 					</div>

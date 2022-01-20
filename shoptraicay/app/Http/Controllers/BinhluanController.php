@@ -18,13 +18,15 @@ class BinhluanController extends Controller
             return Redirect::to('admin')->send();
         }
     }
-
-        
+    
     public function all_binhluan(){
         $this->AuthLogin();
         $all_binhluan = DB::table('binh_luan')
-        ->orderby('binh_luan.ma_binhluan','desc')->paginate(5);
-        $manager_binhluan  = view('admin.all_binhluan')->with('all_binhluan',$all_binhluan);
+        ->join('qua','qua.ma_qua','=','binh_luan.ma_qua')
+        ->orderby('binh_luan.ma_binhluan','desc')
+        ->paginate(5);
+        $manager_binhluan = view('admin.all_binhluan')->with('all_binhluan',$all_binhluan);
+        
         return view('admin.admin_layout')->with('admin.all_lienhe', $manager_binhluan);
         }
         
