@@ -19,7 +19,7 @@
                                
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Hình ảnh sản phẩm</label>
-                                    <input type="file" name="hinh_anh_tin_tuc" class="form-control" id="exampleInputEmail1">
+                                    <input type="file" name="hinh_anh_tin_tuc" class="form-control" id="exampleInputEmail1" required>
                                     <img src="{{URL::to('public/uploads/tintuc/'.$edit_value->hinh_anh_tin_tuc)}}" height="200" width="200">
                                 </div>
                                 <div class="form-group">
