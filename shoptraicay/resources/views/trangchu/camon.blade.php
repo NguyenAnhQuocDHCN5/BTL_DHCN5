@@ -2,7 +2,7 @@
 @section('content1')
 <div class="jumbotron text-center" style="padding-top:119px;padding-bottom:134px; margin-bottom:0px">
   <h1 class="display-3">Thank You!</h1>
-  <p class="lead"><strong>Cảm ơn bạn đã đặt hàng tại cửa hàng chúng tôi</strong> Chúng tôi sẽ liên hệ tới bạn trong thời gian sớm nhất</p>
+  <p class="lead"><strong>xxxx</strong> Chúng tôi sẽ liên hệ tới bạn trong thời gian sớm nhất</p>
   <hr>
   <p>
     Tiếp tục mua hàng
