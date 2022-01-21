@@ -20,7 +20,7 @@
                                 <span>
 									<label>Số lượng:</label>
 									<input name="soluong" type="number" min="1" value="1"/>
-									<input name="sanphamid" type="hidden" value="{{$sanpham->ma_qua}}"/><strong>KG</strong>
+									<input name="sanphamid" type="hidden" value="{{$sanpham->ma_qua}}"/>
                                     <br>
 									<button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>

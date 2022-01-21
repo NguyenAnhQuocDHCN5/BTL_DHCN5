@@ -22,7 +22,7 @@
 									<div class="col-lg-12 col-md-12 col-12">
 										<div class="form-group">
 											<label>Họ và tên<span>
-										
+											*
 											</span></label>
 											<input type="text" name="ten_nguoinhan" placeholder="Tên" required="required" value="{{Session::get('kh_ten')}}">
 										</div>
